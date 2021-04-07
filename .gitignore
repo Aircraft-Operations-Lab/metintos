@@ -5,5 +5,4 @@ mitos/__pycache__/
 .idea/
 
 # Sphinx documentation
-documentation/_build
 /venv/
