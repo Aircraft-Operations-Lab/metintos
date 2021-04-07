@@ -1,0 +1,972 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>Optical Flow &#8212; MITOS 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Meteorological Interpolation Toolbox for Optimization and Simulation (MITOS)" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-mitos.flow_tuning">
+<span id="optical-flow"></span><h1>Optical Flow<a class="headerlink" href="#module-mitos.flow_tuning" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="mitos.flow_tuning.add_steps_to_times_sources_targets">
+<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">add_steps_to_times_sources_targets</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times_sources_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(numpy.timedelta64(0,</span> <span class="pre">'ns'))</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#add_steps_to_times_sources_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.add_steps_to_times_sources_targets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a dict mapping (source step, source step) -&gt; (target step), return a dict replacing step keys and values
+with analogous TimeSelector values that also include time information.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param times_sources_targets</dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">type times_sources_targets</dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">param steps_list</dt>
+<dd class="field-odd"><p>default 0</p>
+</dd>
+<dt class="field-even">type steps_list</dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitos.flow_tuning.add_times_to_steps_sources_targets">
+<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">add_times_to_steps_sources_targets</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps_sources_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#add_times_to_steps_sources_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.add_times_to_steps_sources_targets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a dict mapping (source step, source step) -&gt; (target step), return a dict replacing step keys and values
+with analogous TimeSelector values that also include time information.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param steps_sources_targets</dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">type steps_sources_targets</dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">param dataset</dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">type dataset</dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitos.flow_tuning.evaluate_flow_on_dataset">
+<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">evaluate_flow_on_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow_calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources_and_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_evaluation_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#evaluate_flow_on_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.evaluate_flow_on_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flow_calc</strong> – </p></li>
+<li><p><strong>dataset</strong> (<em>xarray.Dataset</em>) – </p></li>
+<li><p><strong>variables</strong> – </p></li>
+<li><p><strong>sources_and_targets</strong> – </p></li>
+<li><p><strong>array_norms</strong> – </p></li>
+<li><p><strong>aggregation_norm</strong> – </p></li>
+<li><p><strong>cut_evaluation_array</strong> – </p></li>
+<li><p><strong>aggregate</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitos.flow_tuning.evaluate_flow_on_dataset_norms">
+<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">evaluate_flow_on_dataset_norms</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow_calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources_and_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_norms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_evaluation_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#evaluate_flow_on_dataset_norms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.evaluate_flow_on_dataset_norms" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flow_calc</strong> – </p></li>
+<li><p><strong>dataset</strong> (<em>xarray.Dataset</em>) – </p></li>
+<li><p><strong>variables</strong> – </p></li>
+<li><p><strong>sources_and_targets</strong> – </p></li>
+<li><p><strong>array_norms</strong> – </p></li>
+<li><p><strong>aggregation_norm</strong> – </p></li>
+<li><p><strong>cut_evaluation_array</strong> – </p></li>
+<li><p><strong>aggregate</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitos.flow_tuning.filter_dims">
+<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">filter_dims</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dims</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#filter_dims"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.filter_dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns d filtered so that only key-value pairs where the key is in dims are kept</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d</strong> – </p></li>
+<li><p><strong>dims</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitos.flow_tuning.optimize_flow">
+<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">optimize_flow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter_space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources_and_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_evals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_evaluation_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#optimize_flow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.optimize_flow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimizes the parameters of the algorithm for performance on the dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parameter_space</strong> – </p></li>
+<li><p><strong>flow_generator</strong> – </p></li>
+<li><p><strong>dataset</strong> – </p></li>
+<li><p><strong>sources_and_targets</strong> – </p></li>
+<li><p><strong>var_weights</strong> – </p></li>
+<li><p><strong>max_evals</strong> – </p></li>
+<li><p><strong>cut_evaluation_array</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.flow_tuning.TimeSelector">
+<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">TimeSelector</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'mitos.flow_tuning.TimeSelector'&gt;</span></em><a class="headerlink" href="#mitos.flow_tuning.TimeSelector" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code> :
+TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
+</dd></dl>
+
+<span class="target" id="module-mitos.optiflow"></span><dl class="py class">
+<dt id="mitos.optiflow.FarnebackFlow">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.optiflow.</span></code><code class="sig-name descname"><span class="pre">FarnebackFlow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#FarnebackFlow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.FarnebackFlow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optical flow calculator using the algorithm of Farneback (2003)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>parameters</strong> – arguments passed to the Farneback algorithm</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="mitos.optiflow.FarnebackFlow.__call__">
+<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#FarnebackFlow.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.FarnebackFlow.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the computed optical flow</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_frame</strong> (<em>array_like</em>) – 2D array (N x M) representing the start frame</p></li>
+<li><p><strong>end_frame</strong> (<em>array_like</em>) – 2D array (N x M) representing the end frame</p></li>
+<li><p><strong>initial_flow</strong> (<em>array_like</em><em> or </em><em>None</em>) – (optional) N x M x 2 array to initialize the flow</p></li>
+<li><p><strong>start_frame</strong> – 2D array (N x M) representing the start frame</p></li>
+<li><p><strong>check_nans</strong> (<em>bool</em>) – (optional) if True, replace any nans in the input with zeros</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>optical flow between the frames</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.optiflow.FarnebackFlow.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#FarnebackFlow.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.FarnebackFlow.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optical flow calculator using the algorithm of Farneback (2003)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> (<em>dict</em>) – arguments passed to the Farneback algorithm</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mitos.optiflow.MultiFrameInterpolant">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.optiflow.</span></code><code class="sig-name descname"><span class="pre">MultiFrameInterpolant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#MultiFrameInterpolant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.MultiFrameInterpolant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs optical flow or linear interpolation between several consecutive, equally spaced frames</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>interpolants</strong> – List of pairwise interpolants</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="mitos.optiflow.MultiFrameInterpolant.__call__">
+<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#MultiFrameInterpolant.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.MultiFrameInterpolant.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Fraction of the time domain between the start and the end frame. Must fulfill 0 &lt;= t &lt;= n_frames</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Flow-interpolated array at t</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.optiflow.MultiFrameInterpolant.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#MultiFrameInterpolant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.MultiFrameInterpolant.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frames</strong> (<em>list</em><em>[</em><em>array_like</em><em>]</em>) – List of 2D arrays</p></li>
+<li><p><strong>flow_calculator</strong> (<em>(</em><em>R² x R²</em><em>) </em><em>-&gt; R² mapping</em>) – Callable that computes the optical flow between two frames / arrays</p></li>
+<li><p><strong>spatial_interp</strong> (<em>R² -&gt;</em><em> (</em><em>R² -&gt; R</em><em>)</em>) – Callable that generates a 2D interpolant of a frame array with normalized coordinates</p></li>
+<li><p><strong>t_axis</strong> (<em>array_like</em><em>(</em><em>dtype='timedelta64'</em><em>)</em>) – (optional) array containing the timestamps of t</p></li>
+<li><p><strong>initial_flows</strong> (<em>list</em><em>[</em><em>array_like</em><em>]</em>) – List of arrays of shape N x M x 2 representing initial guesses for the optical flows</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.optiflow.MultiFrameInterpolant.eval_at_t">
+<code class="sig-name descname"><span class="pre">eval_at_t</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#MultiFrameInterpolant.eval_at_t"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.MultiFrameInterpolant.eval_at_t" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> – Union[np.datetime64, np.timedelta64]</p></li>
+<li><p><strong>check_nans</strong> (<em>bool</em>) – if True, replace any nans in the input with zeros</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Flow-interpolated array at timestamp t</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mitos.optiflow.NormalizedWrappedInterpolant">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.optiflow.</span></code><code class="sig-name descname"><span class="pre">NormalizedWrappedInterpolant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolant_generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#NormalizedWrappedInterpolant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.NormalizedWrappedInterpolant" title="Permalink to this definition">¶</a></dt>
+<dd><p>2D interpolant with natural index coordinates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> – 2D array to interpolate</p></li>
+<li><p><strong>i</strong> – normalized coordinates along the first axis</p></li>
+<li><p><strong>j</strong> – normalized coordinates along the second axis</p></li>
+<li><p><strong>interpolant</strong> – wrapped interpolant</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="mitos.optiflow.NormalizedWrappedInterpolant.__call__">
+<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#NormalizedWrappedInterpolant.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.NormalizedWrappedInterpolant.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – </p></li>
+<li><p><strong>kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.optiflow.NormalizedWrappedInterpolant.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolant_generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#NormalizedWrappedInterpolant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.NormalizedWrappedInterpolant.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<em>array_like</em>) – 2D array to interpolate</p></li>
+<li><p><strong>interpolant_generator</strong> (<em>R² -&gt;</em><em> (</em><em>R² -&gt; R</em><em>) </em><em>mapping</em>) – wrapped interpolant</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.optiflow.NormalizedWrappedInterpolant.ev">
+<code class="sig-name descname"><span class="pre">ev</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#NormalizedWrappedInterpolant.ev"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.NormalizedWrappedInterpolant.ev" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – </p></li>
+<li><p><strong>kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mitos.optiflow.TwoFrameInterpolant">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.optiflow.</span></code><code class="sig-name descname"><span class="pre">TwoFrameInterpolant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#TwoFrameInterpolant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.TwoFrameInterpolant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs optical flow or linear interpolation between two consecutive frames</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_frame</strong> – Matrix representation of the variable at the start of the temporal interpolation domain</p></li>
+<li><p><strong>end_frame</strong> – Matrix representation of the variable at the end of the temporal interpolation</p></li>
+<li><p><strong>flow_calculator</strong> – Callable that computes the optical flow between two frames / arrays</p></li>
+<li><p><strong>spatial_interp</strong> – Callable that generates a 2D interpolant of a frame array with normalized coordinates</p></li>
+<li><p><strong>flow</strong> – Optical flow between the start and end frames</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="mitos.optiflow.TwoFrameInterpolant.__call__">
+<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#TwoFrameInterpolant.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.TwoFrameInterpolant.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Fraction of the time domain between the start and the end frame. Must fulfill 0 &lt;= t &lt;= 1</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Flow-interpolated array at t</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.optiflow.TwoFrameInterpolant.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#TwoFrameInterpolant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.TwoFrameInterpolant.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_frame</strong> (<em>array_like</em>) – 2D array representation of the variable at the start of the temporal interpolation domain</p></li>
+<li><p><strong>end_frame</strong> (<em>array_like</em>) – 2D array representation of the variable at the end of the temporal interpolation</p></li>
+<li><p><strong>flow_calculator</strong> (<em>(</em><em>R² x R²</em><em>) </em><em>-&gt; R² mapping</em>) – Callable that computes the optical flow between two frames / arrays</p></li>
+<li><p><strong>spatial_interp</strong> (<em>R² -&gt;</em><em> (</em><em>R² -&gt; R</em><em>)</em>) – Callable that generates a 2D interpolant of a frame array with normalized coordinates</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mitos.isa">
+<span id="international-standard-atmosphere-isa"></span><h1>International Standard Atmosphere (ISA)<a class="headerlink" href="#module-mitos.isa" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="mitos.isa.CasadiISA">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.isa.</span></code><code class="sig-name descname"><span class="pre">CasadiISA</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/isa.html#CasadiISA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.isa.CasadiISA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Casadi implementation of the ISA atmosphere (troposphere and tropopause only)</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">var deltaT</dt>
+<dd class="field-odd"><p>Temperature differential w.r.t. ISA conditions</p>
+</dd>
+<dt class="field-even">type deltaT</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py method">
+<dt id="mitos.isa.CasadiISA.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/isa.html#CasadiISA.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.isa.CasadiISA.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>deltaT</strong> (<em>float</em><em>, </em><em>optional</em>) – Temperature differential w.r.t. ISA conditions</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mitos.utils">
+<span id="utilities"></span><h1>Utilities<a class="headerlink" href="#module-mitos.utils" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="mitos.utils.get_bracketing_indexes">
+<code class="sig-prename descclassname"><span class="pre">mitos.utils.</span></code><code class="sig-name descname"><span class="pre">get_bracketing_indexes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/utils.html#get_bracketing_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.utils.get_bracketing_indexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns consecutive indexes idx_low and idx_high such that array[idx_low] &lt;= value &lt; array[idx_high].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<em>array_like</em>) – Array to search. Must be 1D and monotonically sorted in ascending order. This condition is NOT checked here</p></li>
+<li><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>np.datetime64</em><em>, </em><em>np.timedelta64</em><em>]</em>) – Value to bracket</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Indexes that fulfill the condition array[idx_low] &lt;= value &lt; array[idx_high].</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-mitos.io">
+<span id="input-output"></span><h1>Input/output<a class="headerlink" href="#module-mitos.io" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="mitos.io.check_array_for_nans">
+<code class="sig-prename descclassname"><span class="pre">mitos.io.</span></code><code class="sig-name descname"><span class="pre">check_array_for_nans</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#check_array_for_nans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.check_array_for_nans" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arr</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitos.io.get_var_name">
+<code class="sig-prename descclassname"><span class="pre">mitos.io.</span></code><code class="sig-name descname"><span class="pre">get_var_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#get_var_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.get_var_name" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> – </p></li>
+<li><p><strong>variable</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="mitos.io.CoordinateGenerator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.io.</span></code><code class="sig-name descname"><span class="pre">CoordinateGenerator</span></code><a class="reference internal" href="_modules/mitos/io.html#CoordinateGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.CoordinateGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper class for generating coordinates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>dict</strong> – Coordinates dictionary, mapping axis_name -&gt; np.ndarray</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="mitos.io.CoordinateGenerator.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#CoordinateGenerator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.CoordinateGenerator.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>This declares the axes variable as a dictionary</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.io.CoordinateGenerator.add_axis_lims_n_points">
+<code class="sig-name descname"><span class="pre">add_axis_lims_n_points</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#CoordinateGenerator.add_axis_lims_n_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.CoordinateGenerator.add_axis_lims_n_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an axis coordinate specifying limits and number of points in coordinate axis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax_name</strong> (<em>str</em>) – Name of the coordinate axis to be set</p></li>
+<li><p><strong>lower</strong> (<em>float</em>) – Lower limit of the coordinate axis</p></li>
+<li><p><strong>upper</strong> (<em>float</em>) – Upper limit of the coordinate axis</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of points in the coordinate axis</p></li>
+<li><p><strong>dtype</strong> (<em>dtype</em><em>, </em><em>optional</em>) – The type of the coordinate array. If dtype is not given, it will be inferred by numpy.linspace()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.io.CoordinateGenerator.add_axis_lims_resolution">
+<code class="sig-name descname"><span class="pre">add_axis_lims_resolution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#CoordinateGenerator.add_axis_lims_resolution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.CoordinateGenerator.add_axis_lims_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an axis coordinate specifying limits and resolution (i.e. steps between coordinate points)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax_name</strong> (<em>str</em>) – Name of the coordinate axis to be set</p></li>
+<li><p><strong>lower</strong> (<em>float</em>) – Lower limit of the coordinate axis</p></li>
+<li><p><strong>upper</strong> (<em>float</em>) – Upper limit of the coordinate axis</p></li>
+<li><p><strong>resolution</strong> (<em>float</em>) – Distance between axis points</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mitos.io.DatasetHandler">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.io.</span></code><code class="sig-name descname"><span class="pre">DatasetHandler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ds</span></em>, <em class="sig-param"><span class="pre">output_dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></em>, <em class="sig-param"><span class="pre">time_dim='step'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for a xarray.Dataset containing meteorological information at pressure levels</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>ds</strong> – The dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="mitos.io.DatasetHandler.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ds</span></em>, <em class="sig-param"><span class="pre">output_dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></em>, <em class="sig-param"><span class="pre">time_dim='step'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds</strong> (<em>xarray.Dataset</em>) – The dataset</p></li>
+<li><p><strong>output_dtype</strong> (<em>data-type</em>) – (optional)</p></li>
+<li><p><strong>time_dim</strong> (<em>str</em>) – (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.io.DatasetHandler.complete_new_coords">
+<code class="sig-name descname"><span class="pre">complete_new_coords</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.complete_new_coords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.complete_new_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a coordinate set by completing the specificed new coordinates with the already existing ones</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>coords</strong> (<em>dict</em>) – New coordinates, as a dict mapping variable names to monotonically increasing 1D arrays</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New coordinates, completing missing dimensions with the already existing values</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.io.DatasetHandler.default_dims">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">default_dims</span></code><a class="headerlink" href="#mitos.io.DatasetHandler.default_dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the default dimensions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>tuple with the dimensions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.io.DatasetHandler.get_coords_shape">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_coords_shape</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dims</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.get_coords_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.get_coords_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the shape of an array with the given coordinates and dimension ordering</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dims</strong> – dimension</p></li>
+<li><p><strong>coords</strong> – coordinates</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The coordinates shape</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.io.DatasetHandler.get_geographical_coordinate_slice_by_indexes">
+<code class="sig-name descname"><span class="pre">get_geographical_coordinate_slice_by_indexes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat_idx_low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat_idx_high</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon_idx_low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon_idx_high</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.get_geographical_coordinate_slice_by_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.get_geographical_coordinate_slice_by_indexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a CoordinateGenerator (Not implemented)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lat_idx_low</strong> – </p></li>
+<li><p><strong>lat_idx_high</strong> – </p></li>
+<li><p><strong>lon_idx_low</strong> – </p></li>
+<li><p><strong>lon_idx_high</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.io.DatasetHandler.get_optical_flow_interpolated_dataset">
+<code class="sig-name descname"><span class="pre">get_optical_flow_interpolated_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_out_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.get_optical_flow_interpolated_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.get_optical_flow_interpolated_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reinterpolates the dataset to the new coordinates using optical flow interpolation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>new_coords</strong> (<em>dict</em>) – A dictionary of new coordinates, mapping coordinate names to numpy arrays. If a coordinate axis is missing, the old coordinate axis is used by default</p></li>
+<li><p><strong>variables</strong> (<em>list</em>) – (optional) List of variables to be transported to the new dataset</p></li>
+<li><p><strong>flow_calculator</strong> (<em>(</em><em>R² x R²</em><em>) </em><em>-&gt; R² mapping</em>) – (optional) Callable that computes the optical flow between two frames / arrays</p></li>
+<li><p><strong>spatial_interp</strong> (<em>R² -&gt;</em><em> (</em><em>R² -&gt; R</em><em>)</em>) – (optional) Callable that generates a 2D interpolant of a frame array with normalized coordinates</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – (optional) If true, display the progress of the dataset reinterpolation procedure</p></li>
+<li><p><strong>zero_out_nans</strong> (<em>bool</em>) – (optional) if True, replace any nans in the input with zeros</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reinterpolated dataset</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>xarray.Dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.io.DatasetHandler.get_optical_flow_interpolated_variable">
+<code class="sig-name descname"><span class="pre">get_optical_flow_interpolated_variable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_out_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.get_optical_flow_interpolated_variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.get_optical_flow_interpolated_variable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>new_coords</strong> (<em>dict</em>) – A dictionary of new coordinates, mapping coordinate names to numpy arrays. If a coordinate axis is missing, the old coordinate axis is used by default</p></li>
+<li><p><strong>variable</strong> (<em>str</em>) – variable to be transported to the new dataset</p></li>
+<li><p><strong>flow_calculator</strong> (<em>(</em><em>R² x R²</em><em>) </em><em>-&gt; R² mapping</em>) – (optional) Callable that computes the optical flow between two frames / arrays</p></li>
+<li><p><strong>spatial_interp</strong> (<em>R² -&gt;</em><em> (</em><em>R² -&gt; R</em><em>)</em>) – (optional) Callable that generates a 2D interpolant of a frame array with normalized coordinates</p></li>
+<li><p><strong>flow_padding</strong> (<em>float</em>) – (optional)</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – (optional) If true, display the progress of the dataset reinterpolation procedure</p></li>
+<li><p><strong>zero_out_nans</strong> (<em>bool</em>) – (optional) if True, replace any nans in the input with zeros</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reinterpolated dataset</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>xarray.Dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.io.DatasetHandler.get_resampled_dataset">
+<code class="sig-name descname"><span class="pre">get_resampled_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.get_resampled_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.get_resampled_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resamples the dataset to new coordinates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>coords</strong> (<em>dict</em>) – A dictionary of new coordinates, mapping coordinate names to numpy arrays. If a coordinate axis is missing, the old coordinate axis is used by default</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dataset reinterpolated to the new coordinates</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>xarray.Dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mitos.io.DatasetHandler.load_from_steps">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">load_from_steps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">backend_kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.load_from_steps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.load_from_steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the meteo infromation from multiple grib files with consecutive forecast steps</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_list</strong> (<em>list</em>) – List of paths of the grib files</p></li>
+<li><p><strong>backend_kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>cls(ds)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mitos.constants">
+<span id="constants"></span><h1>Constants<a class="headerlink" href="#module-mitos.constants" title="Permalink to this headline">¶</a></h1>
+<dl class="py data">
+<dt id="mitos.constants.P0_MSL">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">P0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">101325.0</span></em><a class="headerlink" href="#mitos.constants.P0_MSL" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+P0_MSL = 101325.0</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.R_a">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">R_a</span></code><em class="property"> <span class="pre">=</span> <span class="pre">6378137.0</span></em><a class="headerlink" href="#mitos.constants.R_a" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+R_a = 6378.137e3</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.R_b">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">R_b</span></code><em class="property"> <span class="pre">=</span> <span class="pre">6356.752</span></em><a class="headerlink" href="#mitos.constants.R_b" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+R_b = 6356.752</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.R_mean">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">R_mean</span></code><em class="property"> <span class="pre">=</span> <span class="pre">6356800.0</span></em><a class="headerlink" href="#mitos.constants.R_mean" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+R_mean = 6356.8e3</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.Rg">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">Rg</span></code><em class="property"> <span class="pre">=</span> <span class="pre">287.05287</span></em><a class="headerlink" href="#mitos.constants.Rg" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+Rg = 287.05287</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.T0_MSL">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">T0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">288.15</span></em><a class="headerlink" href="#mitos.constants.T0_MSL" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+T0_MSL = 288.15</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.T_tropopause">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">T_tropopause</span></code><em class="property"> <span class="pre">=</span> <span class="pre">216.65</span></em><a class="headerlink" href="#mitos.constants.T_tropopause" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+T_tropopause = 216.65</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.a0_MSL">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">a0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">340.294</span></em><a class="headerlink" href="#mitos.constants.a0_MSL" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+a0_MSL = 340.294</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.d2r">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">d2r</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.017453292519943295</span></em><a class="headerlink" href="#mitos.constants.d2r" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+d2r = np.pi/180</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.first_eccentricity">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">first_eccentricity</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.08181919084262149</span></em><a class="headerlink" href="#mitos.constants.first_eccentricity" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+first_eccentricity = (flattening*(2 - flattening))**0.5</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.flattening">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">flattening</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.0033528106647474805</span></em><a class="headerlink" href="#mitos.constants.flattening" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+flattening = 1/298.257223563</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.ft">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">ft</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.3048</span></em><a class="headerlink" href="#mitos.constants.ft" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+ft = 0.3048</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.g">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">g</span></code><em class="property"> <span class="pre">=</span> <span class="pre">9.80665</span></em><a class="headerlink" href="#mitos.constants.g" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+g0 = g = 9.80665</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.g0">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">g0</span></code><em class="property"> <span class="pre">=</span> <span class="pre">9.80665</span></em><a class="headerlink" href="#mitos.constants.g0" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+g0 = g = 9.80665</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.h_tropopause">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">h_tropopause</span></code><em class="property"> <span class="pre">=</span> <span class="pre">11000.0</span></em><a class="headerlink" href="#mitos.constants.h_tropopause" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+h_tropopause = 11e3</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.hour">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">hour</span></code><em class="property"> <span class="pre">=</span> <span class="pre">numpy.timedelta64(3600000000000,'ns')</span></em><a class="headerlink" href="#mitos.constants.hour" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+hour = np.timedelta64(1, ‘h’).astype(‘timedelta64[ns]’)</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.kappa">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">kappa</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1.4</span></em><a class="headerlink" href="#mitos.constants.kappa" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+kappa = 1.4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.kt">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">kt</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.5144444444444445</span></em><a class="headerlink" href="#mitos.constants.kt" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+kt = nmi/3600</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.lapse_rate_troposphere">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">lapse_rate_troposphere</span></code><em class="property"> <span class="pre">=</span> <span class="pre">-0.0065</span></em><a class="headerlink" href="#mitos.constants.lapse_rate_troposphere" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+lapse_rate_troposphere = -0.0065</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.m2ft">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">m2ft</span></code><em class="property"> <span class="pre">=</span> <span class="pre">3.280839895013123</span></em><a class="headerlink" href="#mitos.constants.m2ft" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+m2ft = ft**-1</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.minute">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">minute</span></code><em class="property"> <span class="pre">=</span> <span class="pre">numpy.timedelta64(60000000000,'ns')</span></em><a class="headerlink" href="#mitos.constants.minute" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+minute = np.timedelta64(1, ‘m’).astype(‘timedelta64[ns]’)</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.ms2kt">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">ms2kt</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1.9438444924406046</span></em><a class="headerlink" href="#mitos.constants.ms2kt" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+ms2kt = 1/kt</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.nmi">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">nmi</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1852.0</span></em><a class="headerlink" href="#mitos.constants.nmi" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+nmi = 1852.0</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="mitos.constants.rho0_MSL">
+<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">rho0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1.225</span></em><a class="headerlink" href="#mitos.constants.rho0_MSL" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
+rho0_MSL = 1.225</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MITOS</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=javiergarciaheras&repo=mitos&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Optical Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-mitos.isa">International Standard Atmosphere (ISA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-mitos.utils">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-mitos.io">Input/output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-mitos.constants">Constants</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Meteorological Interpolation Toolbox for Optimization and Simulation (MITOS)</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, UC3M <dangonza@ing.uc3m.es>.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/code.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

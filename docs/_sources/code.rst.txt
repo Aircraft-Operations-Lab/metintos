@@ -1,0 +1,44 @@
+MITOS
+=====
+
+Optical Flow
+------------
+
+.. automodule:: optiflow
+   :members:
+   :private-members:
+   :special-members: __init__
+   :special-members: __call__
+
+.. automodule:: flow_tuning
+   :members:
+   :private-members:
+
+International Standard Atmosphere (ISA)
+---------------------------------------
+
+.. automodule:: isa
+   :members:
+   :private-members:
+
+
+Utilities
+---------
+
+.. automodule:: utils
+   :members:
+   :private-members:
+
+Input/output
+------------
+
+.. automodule:: io
+   :members:
+   :private-members:
+
+Constants
+---------
+
+.. automodule:: constants
+   :members:
+
