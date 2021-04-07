@@ -38,7 +38,7 @@ It is distributed under the GNU General Public License v3.
     cg.add_axis_lims_resolution('step', s0, sf, ss)
 ```
 
-5. Produce the new dataset interpolated with optical flow
+4. Produce the new dataset interpolated with optical flow
 
 ```python
     dsn = dsh.get_optical_flow_interpolated_dataset(cg.axes)
