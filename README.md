@@ -83,7 +83,7 @@ Note that you **should not see** any error or warning, this information appears 
 
 
 
-*This library has been developed within [FMP-Met Project] (https://fmp-met.com). FMP-Met has received funding from the SESAR Joint Undertaking (JU) under grant agreement No 885919. The JU receives support from the European Union’s Horizon 2020 research and innovation programme and the SESAR JU members other than the Union*.
+*This library has been developed within ([FMP-Met Project] (https://fmp-met.com)). FMP-Met has received funding from the SESAR Joint Undertaking (JU) under grant agreement No 885919. The JU receives support from the European Union’s Horizon 2020 research and innovation programme and the SESAR JU members other than the Union*.
 
    
    
