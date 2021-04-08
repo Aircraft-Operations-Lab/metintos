@@ -6,4 +6,6 @@ metintos/__pycache__/
 
 # Sphinx documentation
 /venv/
+
 /MANIFEST
+metintos.egg-info/

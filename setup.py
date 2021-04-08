@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from distutils.core import setup
+from setuptools import setup
 from os import path
 from io import open
 
@@ -14,7 +14,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
   name = 'metintos',         # How you named your package folder (MyLib)
   packages = ['metintos'],   # Chose the same as "name"
-  version = '0.1',      # Start with a small number and increase it with every change you make
+  version = '0.2',      # Start with a small number and increase it with every change you make
   license='lgpl-3.0',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Meteorological Interpolation Toolbox for Optimization and Simulation',   # Give a short description about your library
   long_description=long_description,
