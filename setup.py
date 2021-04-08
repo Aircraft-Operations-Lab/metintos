@@ -2,6 +2,14 @@
 # -*- coding: utf-8 -*-
 
 from distutils.core import setup
+from os import path
+from io import open
+
+here = path.abspath(path.dirname(__file__))
+
+# Get the long description from the README file
+with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
   name = 'metintos',         # How you named your package folder (MyLib)
@@ -9,6 +17,8 @@ setup(
   version = '0.1',      # Start with a small number and increase it with every change you make
   license='lgpl-3.0',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Meteorological Interpolation Toolbox for Optimization and Simulation',   # Give a short description about your library
+  long_description=long_description,
+  long_description_content_type='text/markdown',
   author = 'Daniel González Arribas',                   # Type in your name
   author_email = 'dangonza@ing.uc3m.es',      # Type in your E-Mail
   url = 'https://github.com/javiergarciaheras/mitos',   # Provide either the link to your github or to your website
