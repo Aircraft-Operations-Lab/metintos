@@ -1,23 +1,60 @@
-.. MITOS documentation master file, created by
+.. METINTOS documentation master file, created by
    sphinx-quickstart on Sun Feb 17 20:11:10 2019.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Meteorological Interpolation Toolbox for Optimization and Simulation (MITOS)
-============================================================================
+METeorological INterpolation Toolbox for Optimization and Simulation (METINTOS)
+===============================================================================
 
-What is MITOS?
---------------
-MITOS is a libray that interpolate meteorological variables in time.
+What is METINTOS?
+-----------------
+METINTOS is a libray that interpolates meteorological variables in time.
+It is distributed under the GNU Lesser General Public License v3.0.
 
-How to install dependencies?
-----------------------------
-Needed libraries are listed on requirements.txt files.
+**Citation info**: D. Daniel González-Arribas, J. García-Heras, M. Soler and E.A. Enderiz, METeorological INterpolation Toolbox for Optimization and Simulation (METINTOS) an open source meteorological variable interpolator.
+
+How to run the library
+----------------------
+
+1. Clone or download the repository.
+2. Install all the dependencies.
 
 
-How to use it?
---------------
-(TBC)
+How to use it
+-------------
+
+1. From your meteorological files you have to create the dataset, you have to use xarray.open_mfdataset, you can obtain information in the xarray documentation ([xarray.open_mfdataset link](http://xarray.pydata.org/en/stable/generated/xarray.open_mfdataset.html)).
+
+
+::
+
+    ds = xr.open_mfdataset(files, engine='h5netcdf', concat_dim=['step'], combine='nested')
+
+
+2. Create the DatasetHandler calling metintos.io.DatasetHandler.
+
+::
+
+    dsh = metintos.io.DatasetHandler(cls.ds)
+
+
+3. Create CoordinateGenerator object and new axis, i.e.: latitudes, longitudes, steps.
+
+::
+
+    cg = metintos.io.CoordinateGenerator()
+    cg.add_axis_lims_n_points('latitude', l0, lf, ls)
+    cg.add_axis_lims_n_points('longitude', lo0, lof, los)
+    cg.add_axis_lims_resolution('step', s0, sf, ss)
+
+
+4. Produce the new dataset interpolated with optical flow
+
+::
+
+    dsn = dsh.get_optical_flow_interpolated_dataset(cg.axes)
+
+
 
 
 How to compile documentation pdf?

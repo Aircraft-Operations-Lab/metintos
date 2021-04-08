@@ -2,19 +2,19 @@
 Optical Flow
 ------------
 
-.. automodule:: mitos.flow_tuning
+.. automodule:: metintos.flow_tuning
    :members: add_times_to_steps_sources_targets, add_steps_to_times_sources_targets, filter_dims, evaluate_flow_on_dataset, evaluate_flow_on_dataset_norms, optimize_flow
 
-.. autodata:: mitos.flow_tuning.TimeSelector
+.. autodata:: metintos.flow_tuning.TimeSelector
 
-.. automodule:: mitos.optiflow
+.. automodule:: metintos.optiflow
    :members:
    :special-members: __init__, __call__
 
 International Standard Atmosphere (ISA)
 ---------------------------------------
 
-.. automodule:: mitos.isa
+.. automodule:: metintos.isa
    :members:
    :private-members:
    :special-members: __init__
@@ -22,21 +22,21 @@ International Standard Atmosphere (ISA)
 Utilities
 ---------
 
-.. automodule:: mitos.utils
+.. automodule:: metintos.utils
    :members: get_bracketing_indexes
 
 Input/output
 ------------
 
-.. automodule:: mitos.io
+.. automodule:: metintos.io
    :members: check_array_for_nans, get_var_name
 
-.. autoclass:: mitos.io.CoordinateGenerator
+.. autoclass:: metintos.io.CoordinateGenerator
    :members:
    :private-members:
    :special-members: __init__
 
-.. autoclass:: mitos.io.DatasetHandler
+.. autoclass:: metintos.io.DatasetHandler
    :members:
    :private-members:
    :special-members: __init__
@@ -44,6 +44,6 @@ Input/output
 Constants
 ---------
 
-.. automodule:: mitos.constants
+.. automodule:: metintos.constants
    :members:
 

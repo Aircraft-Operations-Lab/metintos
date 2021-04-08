@@ -1,7 +1,7 @@
 build/
 dist/
 mitos.egg-info/
-mitos/__pycache__/
+metintos/__pycache__/
 .idea/
 
 # Sphinx documentation

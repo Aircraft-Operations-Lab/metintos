@@ -4,8 +4,8 @@ import time
 from collections import namedtuple
 from typing import NamedTuple, List
 from itertools import product
-from mitos.optiflow import *
-from mitos.constants import hour
+from metintos.optiflow import *
+from metintos.constants import hour
 from hyperopt import fmin, tpe, hp, STATUS_OK, Trials
 
 #: :obj:`tuple` :

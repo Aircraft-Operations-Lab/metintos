@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from mitos.constants import *
+from metintos.constants import *
 from casadi import interpolant
 
 

@@ -19,7 +19,7 @@ path = os.path.join(os.path.dirname(os.path.abspath('.')))
 print('[PATH]: ',path)
 sys.path.insert(0, path)
 
-path = os.path.join(os.path.dirname(os.path.abspath('.')),'mitos')
+path = os.path.join(os.path.dirname(os.path.abspath('.')),'metintos')
 print('[PATH]: ',path)
 sys.path.insert(0, path)
 
@@ -28,7 +28,7 @@ sys.path.insert(0, path)
 
 # -- Project information -----------------------------------------------------
 
-project = u'MITOS'
+project = u'METINTOS'
 copyright = u'2021, UC3M <dangonza@ing.uc3m.es>'
 author = u'UC3M <dangonza@ing.uc3m.es>'
 
@@ -95,7 +95,7 @@ html_theme = 'alabaster'
 html_theme_options = {
     #'logo': 'fmp-met_logo.png', # you should locate the png image in the _static folder
     'github_user': 'javiergarciaheras',
-    'github_repo': 'mitos'
+    'github_repo': 'metintos'
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -125,7 +125,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'MITOSdoc'
+htmlhelp_basename = 'METINTOSdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -159,7 +159,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'MITOS.tex', u'Meteorological Interpolation Toolbox for Optimization and Simulation (MITOS) Documentation',
+    (master_doc, 'METINTOS.tex', u'METeorological INterpolation Toolbox for Optimization and Simulation (METINTOS) Documentation',
      u'UC3M', 'manual'),
 ]
 
@@ -169,7 +169,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'MITOS', u'MITOS Documentation',
+    (master_doc, 'METINTOS', u'METINTOS Documentation',
      [author], 1)
 ]
 
@@ -180,7 +180,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'MITOS', u'MITOS Documentation',
+    (master_doc, 'METINTOS', u'METINTOS Documentation',
      author, 'Daniel González Arribas', 'Meteorological Interpolation Toolbox for Optimization and Simulation.',
      'Miscellaneous'),
 ]

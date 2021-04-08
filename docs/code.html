@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-    <title>Optical Flow &#8212; MITOS 1.0.0 documentation</title>
+    <title>Optical Flow &#8212; METINTOS 1.0.0 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Meteorological Interpolation Toolbox for Optimization and Simulation (MITOS)" href="index.html" />
+    <link rel="prev" title="METeorological INterpolation Toolbox for Optimization and Simulation (METINTOS)" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,11 +32,11 @@
 
           <div class="body" role="main">
             
-  <section id="module-mitos.flow_tuning">
-<span id="optical-flow"></span><h1>Optical Flow<a class="headerlink" href="#module-mitos.flow_tuning" title="Permalink to this headline">¶</a></h1>
+  <section id="module-metintos.flow_tuning">
+<span id="optical-flow"></span><h1>Optical Flow<a class="headerlink" href="#module-metintos.flow_tuning" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="mitos.flow_tuning.add_steps_to_times_sources_targets">
-<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">add_steps_to_times_sources_targets</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times_sources_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(numpy.timedelta64(0,</span> <span class="pre">'ns'))</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#add_steps_to_times_sources_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.add_steps_to_times_sources_targets" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.flow_tuning.add_steps_to_times_sources_targets">
+<code class="sig-prename descclassname"><span class="pre">metintos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">add_steps_to_times_sources_targets</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times_sources_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(numpy.timedelta64(0,</span> <span class="pre">'ns'))</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/flow_tuning.html#add_steps_to_times_sources_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.flow_tuning.add_steps_to_times_sources_targets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a dict mapping (source step, source step) -&gt; (target step), return a dict replacing step keys and values
 with analogous TimeSelector values that also include time information.</p>
 <blockquote>
@@ -58,8 +58,8 @@ with analogous TimeSelector values that also include time information.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="mitos.flow_tuning.add_times_to_steps_sources_targets">
-<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">add_times_to_steps_sources_targets</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps_sources_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#add_times_to_steps_sources_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.add_times_to_steps_sources_targets" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.flow_tuning.add_times_to_steps_sources_targets">
+<code class="sig-prename descclassname"><span class="pre">metintos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">add_times_to_steps_sources_targets</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps_sources_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/flow_tuning.html#add_times_to_steps_sources_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.flow_tuning.add_times_to_steps_sources_targets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a dict mapping (source step, source step) -&gt; (target step), return a dict replacing step keys and values
 with analogous TimeSelector values that also include time information.</p>
 <blockquote>
@@ -80,8 +80,8 @@ with analogous TimeSelector values that also include time information.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="mitos.flow_tuning.evaluate_flow_on_dataset">
-<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">evaluate_flow_on_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow_calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources_and_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_evaluation_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#evaluate_flow_on_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.evaluate_flow_on_dataset" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.flow_tuning.evaluate_flow_on_dataset">
+<code class="sig-prename descclassname"><span class="pre">metintos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">evaluate_flow_on_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow_calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources_and_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_evaluation_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/flow_tuning.html#evaluate_flow_on_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.flow_tuning.evaluate_flow_on_dataset" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -102,8 +102,8 @@ with analogous TimeSelector values that also include time information.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="mitos.flow_tuning.evaluate_flow_on_dataset_norms">
-<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">evaluate_flow_on_dataset_norms</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow_calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources_and_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_norms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_evaluation_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#evaluate_flow_on_dataset_norms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.evaluate_flow_on_dataset_norms" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.flow_tuning.evaluate_flow_on_dataset_norms">
+<code class="sig-prename descclassname"><span class="pre">metintos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">evaluate_flow_on_dataset_norms</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow_calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources_and_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_norms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_evaluation_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/flow_tuning.html#evaluate_flow_on_dataset_norms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.flow_tuning.evaluate_flow_on_dataset_norms" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -124,8 +124,8 @@ with analogous TimeSelector values that also include time information.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="mitos.flow_tuning.filter_dims">
-<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">filter_dims</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dims</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#filter_dims"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.filter_dims" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.flow_tuning.filter_dims">
+<code class="sig-prename descclassname"><span class="pre">metintos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">filter_dims</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dims</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/flow_tuning.html#filter_dims"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.flow_tuning.filter_dims" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns d filtered so that only key-value pairs where the key is in dims are kept</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -141,8 +141,8 @@ with analogous TimeSelector values that also include time information.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="mitos.flow_tuning.optimize_flow">
-<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">optimize_flow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter_space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources_and_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_evals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_evaluation_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/flow_tuning.html#optimize_flow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.flow_tuning.optimize_flow" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.flow_tuning.optimize_flow">
+<code class="sig-prename descclassname"><span class="pre">metintos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">optimize_flow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter_space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources_and_targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_evals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_evaluation_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/flow_tuning.html#optimize_flow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.flow_tuning.optimize_flow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Optimizes the parameters of the algorithm for performance on the dataset</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -163,15 +163,15 @@ with analogous TimeSelector values that also include time information.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.flow_tuning.TimeSelector">
-<code class="sig-prename descclassname"><span class="pre">mitos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">TimeSelector</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'mitos.flow_tuning.TimeSelector'&gt;</span></em><a class="headerlink" href="#mitos.flow_tuning.TimeSelector" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.flow_tuning.TimeSelector">
+<code class="sig-prename descclassname"><span class="pre">metintos.flow_tuning.</span></code><code class="sig-name descname"><span class="pre">TimeSelector</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'metintos.flow_tuning.TimeSelector'&gt;</span></em><a class="headerlink" href="#metintos.flow_tuning.TimeSelector" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code> :
 TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
-<span class="target" id="module-mitos.optiflow"></span><dl class="py class">
-<dt id="mitos.optiflow.FarnebackFlow">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.optiflow.</span></code><code class="sig-name descname"><span class="pre">FarnebackFlow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#FarnebackFlow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.FarnebackFlow" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="module-metintos.optiflow"></span><dl class="py class">
+<dt id="metintos.optiflow.FarnebackFlow">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">metintos.optiflow.</span></code><code class="sig-name descname"><span class="pre">FarnebackFlow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#FarnebackFlow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.FarnebackFlow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Optical flow calculator using the algorithm of Farneback (2003)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -179,8 +179,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="mitos.optiflow.FarnebackFlow.__call__">
-<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#FarnebackFlow.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.FarnebackFlow.__call__" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.FarnebackFlow.__call__">
+<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#FarnebackFlow.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.FarnebackFlow.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the computed optical flow</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -202,8 +202,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.optiflow.FarnebackFlow.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#FarnebackFlow.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.FarnebackFlow.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.FarnebackFlow.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#FarnebackFlow.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.FarnebackFlow.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Optical flow calculator using the algorithm of Farneback (2003)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -218,8 +218,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="mitos.optiflow.MultiFrameInterpolant">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.optiflow.</span></code><code class="sig-name descname"><span class="pre">MultiFrameInterpolant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#MultiFrameInterpolant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.MultiFrameInterpolant" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.MultiFrameInterpolant">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">metintos.optiflow.</span></code><code class="sig-name descname"><span class="pre">MultiFrameInterpolant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#MultiFrameInterpolant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.MultiFrameInterpolant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs optical flow or linear interpolation between several consecutive, equally spaced frames</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -227,8 +227,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="mitos.optiflow.MultiFrameInterpolant.__call__">
-<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#MultiFrameInterpolant.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.MultiFrameInterpolant.__call__" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.MultiFrameInterpolant.__call__">
+<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#MultiFrameInterpolant.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.MultiFrameInterpolant.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Fraction of the time domain between the start and the end frame. Must fulfill 0 &lt;= t &lt;= n_frames</p>
@@ -243,8 +243,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.optiflow.MultiFrameInterpolant.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#MultiFrameInterpolant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.MultiFrameInterpolant.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.MultiFrameInterpolant.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#MultiFrameInterpolant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.MultiFrameInterpolant.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -262,8 +262,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.optiflow.MultiFrameInterpolant.eval_at_t">
-<code class="sig-name descname"><span class="pre">eval_at_t</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#MultiFrameInterpolant.eval_at_t"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.MultiFrameInterpolant.eval_at_t" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.MultiFrameInterpolant.eval_at_t">
+<code class="sig-name descname"><span class="pre">eval_at_t</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#MultiFrameInterpolant.eval_at_t"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.MultiFrameInterpolant.eval_at_t" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -283,8 +283,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="mitos.optiflow.NormalizedWrappedInterpolant">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.optiflow.</span></code><code class="sig-name descname"><span class="pre">NormalizedWrappedInterpolant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolant_generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#NormalizedWrappedInterpolant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.NormalizedWrappedInterpolant" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.NormalizedWrappedInterpolant">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">metintos.optiflow.</span></code><code class="sig-name descname"><span class="pre">NormalizedWrappedInterpolant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolant_generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#NormalizedWrappedInterpolant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.NormalizedWrappedInterpolant" title="Permalink to this definition">¶</a></dt>
 <dd><p>2D interpolant with natural index coordinates</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -297,8 +297,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="mitos.optiflow.NormalizedWrappedInterpolant.__call__">
-<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#NormalizedWrappedInterpolant.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.NormalizedWrappedInterpolant.__call__" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.NormalizedWrappedInterpolant.__call__">
+<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#NormalizedWrappedInterpolant.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.NormalizedWrappedInterpolant.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -313,8 +313,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.optiflow.NormalizedWrappedInterpolant.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolant_generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#NormalizedWrappedInterpolant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.NormalizedWrappedInterpolant.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.NormalizedWrappedInterpolant.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolant_generator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#NormalizedWrappedInterpolant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.NormalizedWrappedInterpolant.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -329,8 +329,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.optiflow.NormalizedWrappedInterpolant.ev">
-<code class="sig-name descname"><span class="pre">ev</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#NormalizedWrappedInterpolant.ev"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.NormalizedWrappedInterpolant.ev" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.NormalizedWrappedInterpolant.ev">
+<code class="sig-name descname"><span class="pre">ev</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#NormalizedWrappedInterpolant.ev"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.NormalizedWrappedInterpolant.ev" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -347,8 +347,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="mitos.optiflow.TwoFrameInterpolant">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.optiflow.</span></code><code class="sig-name descname"><span class="pre">TwoFrameInterpolant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#TwoFrameInterpolant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.TwoFrameInterpolant" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.TwoFrameInterpolant">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">metintos.optiflow.</span></code><code class="sig-name descname"><span class="pre">TwoFrameInterpolant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#TwoFrameInterpolant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.TwoFrameInterpolant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs optical flow or linear interpolation between two consecutive frames</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -362,8 +362,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="mitos.optiflow.TwoFrameInterpolant.__call__">
-<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#TwoFrameInterpolant.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.TwoFrameInterpolant.__call__" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.TwoFrameInterpolant.__call__">
+<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#TwoFrameInterpolant.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.TwoFrameInterpolant.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Fraction of the time domain between the start and the end frame. Must fulfill 0 &lt;= t &lt;= 1</p>
@@ -378,8 +378,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.optiflow.TwoFrameInterpolant.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/optiflow.html#TwoFrameInterpolant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.optiflow.TwoFrameInterpolant.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.optiflow.TwoFrameInterpolant.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/optiflow.html#TwoFrameInterpolant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.optiflow.TwoFrameInterpolant.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -398,11 +398,11 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 </section>
-<section id="module-mitos.isa">
-<span id="international-standard-atmosphere-isa"></span><h1>International Standard Atmosphere (ISA)<a class="headerlink" href="#module-mitos.isa" title="Permalink to this headline">¶</a></h1>
+<section id="module-metintos.isa">
+<span id="international-standard-atmosphere-isa"></span><h1>International Standard Atmosphere (ISA)<a class="headerlink" href="#module-metintos.isa" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="mitos.isa.CasadiISA">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.isa.</span></code><code class="sig-name descname"><span class="pre">CasadiISA</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/isa.html#CasadiISA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.isa.CasadiISA" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.isa.CasadiISA">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">metintos.isa.</span></code><code class="sig-name descname"><span class="pre">CasadiISA</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/isa.html#CasadiISA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.isa.CasadiISA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Casadi implementation of the ISA atmosphere (troposphere and tropopause only)</p>
 <blockquote>
 <div><dl class="field-list simple">
@@ -415,8 +415,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dl>
 </div></blockquote>
 <dl class="py method">
-<dt id="mitos.isa.CasadiISA.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/isa.html#CasadiISA.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.isa.CasadiISA.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.isa.CasadiISA.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/isa.html#CasadiISA.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.isa.CasadiISA.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>deltaT</strong> (<em>float</em><em>, </em><em>optional</em>) – Temperature differential w.r.t. ISA conditions</p>
@@ -430,11 +430,11 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 </section>
-<section id="module-mitos.utils">
-<span id="utilities"></span><h1>Utilities<a class="headerlink" href="#module-mitos.utils" title="Permalink to this headline">¶</a></h1>
+<section id="module-metintos.utils">
+<span id="utilities"></span><h1>Utilities<a class="headerlink" href="#module-metintos.utils" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="mitos.utils.get_bracketing_indexes">
-<code class="sig-prename descclassname"><span class="pre">mitos.utils.</span></code><code class="sig-name descname"><span class="pre">get_bracketing_indexes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/utils.html#get_bracketing_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.utils.get_bracketing_indexes" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.utils.get_bracketing_indexes">
+<code class="sig-prename descclassname"><span class="pre">metintos.utils.</span></code><code class="sig-name descname"><span class="pre">get_bracketing_indexes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/utils.html#get_bracketing_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.utils.get_bracketing_indexes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns consecutive indexes idx_low and idx_high such that array[idx_low] &lt;= value &lt; array[idx_high].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -453,11 +453,11 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 </section>
-<section id="module-mitos.io">
-<span id="input-output"></span><h1>Input/output<a class="headerlink" href="#module-mitos.io" title="Permalink to this headline">¶</a></h1>
+<section id="module-metintos.io">
+<span id="input-output"></span><h1>Input/output<a class="headerlink" href="#module-metintos.io" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="mitos.io.check_array_for_nans">
-<code class="sig-prename descclassname"><span class="pre">mitos.io.</span></code><code class="sig-name descname"><span class="pre">check_array_for_nans</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#check_array_for_nans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.check_array_for_nans" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.check_array_for_nans">
+<code class="sig-prename descclassname"><span class="pre">metintos.io.</span></code><code class="sig-name descname"><span class="pre">check_array_for_nans</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#check_array_for_nans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.check_array_for_nans" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>arr</strong> – </p>
@@ -469,8 +469,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="mitos.io.get_var_name">
-<code class="sig-prename descclassname"><span class="pre">mitos.io.</span></code><code class="sig-name descname"><span class="pre">get_var_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#get_var_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.get_var_name" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.get_var_name">
+<code class="sig-prename descclassname"><span class="pre">metintos.io.</span></code><code class="sig-name descname"><span class="pre">get_var_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#get_var_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.get_var_name" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -485,8 +485,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="mitos.io.CoordinateGenerator">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.io.</span></code><code class="sig-name descname"><span class="pre">CoordinateGenerator</span></code><a class="reference internal" href="_modules/mitos/io.html#CoordinateGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.CoordinateGenerator" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.CoordinateGenerator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">metintos.io.</span></code><code class="sig-name descname"><span class="pre">CoordinateGenerator</span></code><a class="reference internal" href="_modules/metintos/io.html#CoordinateGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.CoordinateGenerator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper class for generating coordinates</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -494,14 +494,14 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="mitos.io.CoordinateGenerator.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#CoordinateGenerator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.CoordinateGenerator.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.CoordinateGenerator.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#CoordinateGenerator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.CoordinateGenerator.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>This declares the axes variable as a dictionary</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.io.CoordinateGenerator.add_axis_lims_n_points">
-<code class="sig-name descname"><span class="pre">add_axis_lims_n_points</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#CoordinateGenerator.add_axis_lims_n_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.CoordinateGenerator.add_axis_lims_n_points" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.CoordinateGenerator.add_axis_lims_n_points">
+<code class="sig-name descname"><span class="pre">add_axis_lims_n_points</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#CoordinateGenerator.add_axis_lims_n_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.CoordinateGenerator.add_axis_lims_n_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add an axis coordinate specifying limits and number of points in coordinate axis</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -520,8 +520,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.io.CoordinateGenerator.add_axis_lims_resolution">
-<code class="sig-name descname"><span class="pre">add_axis_lims_resolution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#CoordinateGenerator.add_axis_lims_resolution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.CoordinateGenerator.add_axis_lims_resolution" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.CoordinateGenerator.add_axis_lims_resolution">
+<code class="sig-name descname"><span class="pre">add_axis_lims_resolution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#CoordinateGenerator.add_axis_lims_resolution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.CoordinateGenerator.add_axis_lims_resolution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add an axis coordinate specifying limits and resolution (i.e. steps between coordinate points)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -541,8 +541,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="mitos.io.DatasetHandler">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mitos.io.</span></code><code class="sig-name descname"><span class="pre">DatasetHandler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ds</span></em>, <em class="sig-param"><span class="pre">output_dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></em>, <em class="sig-param"><span class="pre">time_dim='step'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.DatasetHandler">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">metintos.io.</span></code><code class="sig-name descname"><span class="pre">DatasetHandler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ds</span></em>, <em class="sig-param"><span class="pre">output_dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></em>, <em class="sig-param"><span class="pre">time_dim='step'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#DatasetHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.DatasetHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper for a xarray.Dataset containing meteorological information at pressure levels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -550,8 +550,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="mitos.io.DatasetHandler.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ds</span></em>, <em class="sig-param"><span class="pre">output_dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></em>, <em class="sig-param"><span class="pre">time_dim='step'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.DatasetHandler.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ds</span></em>, <em class="sig-param"><span class="pre">output_dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></em>, <em class="sig-param"><span class="pre">time_dim='step'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#DatasetHandler.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.DatasetHandler.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -567,8 +567,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.io.DatasetHandler.complete_new_coords">
-<code class="sig-name descname"><span class="pre">complete_new_coords</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.complete_new_coords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.complete_new_coords" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.DatasetHandler.complete_new_coords">
+<code class="sig-name descname"><span class="pre">complete_new_coords</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#DatasetHandler.complete_new_coords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.DatasetHandler.complete_new_coords" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a coordinate set by completing the specificed new coordinates with the already existing ones</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -584,8 +584,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.io.DatasetHandler.default_dims">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">default_dims</span></code><a class="headerlink" href="#mitos.io.DatasetHandler.default_dims" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.DatasetHandler.default_dims">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">default_dims</span></code><a class="headerlink" href="#metintos.io.DatasetHandler.default_dims" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the default dimensions</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -595,8 +595,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.io.DatasetHandler.get_coords_shape">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_coords_shape</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dims</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.get_coords_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.get_coords_shape" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.DatasetHandler.get_coords_shape">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_coords_shape</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dims</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#DatasetHandler.get_coords_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.DatasetHandler.get_coords_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the shape of an array with the given coordinates and dimension ordering</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -615,8 +615,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.io.DatasetHandler.get_geographical_coordinate_slice_by_indexes">
-<code class="sig-name descname"><span class="pre">get_geographical_coordinate_slice_by_indexes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat_idx_low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat_idx_high</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon_idx_low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon_idx_high</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.get_geographical_coordinate_slice_by_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.get_geographical_coordinate_slice_by_indexes" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.DatasetHandler.get_geographical_coordinate_slice_by_indexes">
+<code class="sig-name descname"><span class="pre">get_geographical_coordinate_slice_by_indexes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat_idx_low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat_idx_high</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon_idx_low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon_idx_high</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#DatasetHandler.get_geographical_coordinate_slice_by_indexes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.DatasetHandler.get_geographical_coordinate_slice_by_indexes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a CoordinateGenerator (Not implemented)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -634,8 +634,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.io.DatasetHandler.get_optical_flow_interpolated_dataset">
-<code class="sig-name descname"><span class="pre">get_optical_flow_interpolated_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_out_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.get_optical_flow_interpolated_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.get_optical_flow_interpolated_dataset" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.DatasetHandler.get_optical_flow_interpolated_dataset">
+<code class="sig-name descname"><span class="pre">get_optical_flow_interpolated_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_out_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#DatasetHandler.get_optical_flow_interpolated_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.DatasetHandler.get_optical_flow_interpolated_dataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reinterpolates the dataset to the new coordinates using optical flow interpolation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -658,8 +658,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.io.DatasetHandler.get_optical_flow_interpolated_variable">
-<code class="sig-name descname"><span class="pre">get_optical_flow_interpolated_variable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_out_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.get_optical_flow_interpolated_variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.get_optical_flow_interpolated_variable" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.DatasetHandler.get_optical_flow_interpolated_variable">
+<code class="sig-name descname"><span class="pre">get_optical_flow_interpolated_variable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_out_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#DatasetHandler.get_optical_flow_interpolated_variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.DatasetHandler.get_optical_flow_interpolated_variable" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -682,8 +682,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.io.DatasetHandler.get_resampled_dataset">
-<code class="sig-name descname"><span class="pre">get_resampled_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.get_resampled_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.get_resampled_dataset" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.DatasetHandler.get_resampled_dataset">
+<code class="sig-name descname"><span class="pre">get_resampled_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#DatasetHandler.get_resampled_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.DatasetHandler.get_resampled_dataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resamples the dataset to new coordinates</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -699,8 +699,8 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="mitos.io.DatasetHandler.load_from_steps">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">load_from_steps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">backend_kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mitos/io.html#DatasetHandler.load_from_steps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mitos.io.DatasetHandler.load_from_steps" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.io.DatasetHandler.load_from_steps">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">load_from_steps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">backend_kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/metintos/io.html#DatasetHandler.load_from_steps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metintos.io.DatasetHandler.load_from_steps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the meteo infromation from multiple grib files with consecutive forecast steps</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -718,172 +718,172 @@ TimeSelector = namedtuple(“TimeSelector”, [‘time’, ‘step’])</p>
 </dd></dl>
 
 </section>
-<section id="module-mitos.constants">
-<span id="constants"></span><h1>Constants<a class="headerlink" href="#module-mitos.constants" title="Permalink to this headline">¶</a></h1>
+<section id="module-metintos.constants">
+<span id="constants"></span><h1>Constants<a class="headerlink" href="#module-metintos.constants" title="Permalink to this headline">¶</a></h1>
 <dl class="py data">
-<dt id="mitos.constants.P0_MSL">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">P0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">101325.0</span></em><a class="headerlink" href="#mitos.constants.P0_MSL" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.P0_MSL">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">P0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">101325.0</span></em><a class="headerlink" href="#metintos.constants.P0_MSL" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 P0_MSL = 101325.0</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.R_a">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">R_a</span></code><em class="property"> <span class="pre">=</span> <span class="pre">6378137.0</span></em><a class="headerlink" href="#mitos.constants.R_a" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.R_a">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">R_a</span></code><em class="property"> <span class="pre">=</span> <span class="pre">6378137.0</span></em><a class="headerlink" href="#metintos.constants.R_a" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 R_a = 6378.137e3</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.R_b">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">R_b</span></code><em class="property"> <span class="pre">=</span> <span class="pre">6356.752</span></em><a class="headerlink" href="#mitos.constants.R_b" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.R_b">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">R_b</span></code><em class="property"> <span class="pre">=</span> <span class="pre">6356.752</span></em><a class="headerlink" href="#metintos.constants.R_b" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 R_b = 6356.752</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.R_mean">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">R_mean</span></code><em class="property"> <span class="pre">=</span> <span class="pre">6356800.0</span></em><a class="headerlink" href="#mitos.constants.R_mean" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.R_mean">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">R_mean</span></code><em class="property"> <span class="pre">=</span> <span class="pre">6356800.0</span></em><a class="headerlink" href="#metintos.constants.R_mean" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 R_mean = 6356.8e3</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.Rg">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">Rg</span></code><em class="property"> <span class="pre">=</span> <span class="pre">287.05287</span></em><a class="headerlink" href="#mitos.constants.Rg" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.Rg">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">Rg</span></code><em class="property"> <span class="pre">=</span> <span class="pre">287.05287</span></em><a class="headerlink" href="#metintos.constants.Rg" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 Rg = 287.05287</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.T0_MSL">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">T0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">288.15</span></em><a class="headerlink" href="#mitos.constants.T0_MSL" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.T0_MSL">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">T0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">288.15</span></em><a class="headerlink" href="#metintos.constants.T0_MSL" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 T0_MSL = 288.15</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.T_tropopause">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">T_tropopause</span></code><em class="property"> <span class="pre">=</span> <span class="pre">216.65</span></em><a class="headerlink" href="#mitos.constants.T_tropopause" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.T_tropopause">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">T_tropopause</span></code><em class="property"> <span class="pre">=</span> <span class="pre">216.65</span></em><a class="headerlink" href="#metintos.constants.T_tropopause" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 T_tropopause = 216.65</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.a0_MSL">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">a0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">340.294</span></em><a class="headerlink" href="#mitos.constants.a0_MSL" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.a0_MSL">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">a0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">340.294</span></em><a class="headerlink" href="#metintos.constants.a0_MSL" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 a0_MSL = 340.294</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.d2r">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">d2r</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.017453292519943295</span></em><a class="headerlink" href="#mitos.constants.d2r" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.d2r">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">d2r</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.017453292519943295</span></em><a class="headerlink" href="#metintos.constants.d2r" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 d2r = np.pi/180</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.first_eccentricity">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">first_eccentricity</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.08181919084262149</span></em><a class="headerlink" href="#mitos.constants.first_eccentricity" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.first_eccentricity">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">first_eccentricity</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.08181919084262149</span></em><a class="headerlink" href="#metintos.constants.first_eccentricity" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 first_eccentricity = (flattening*(2 - flattening))**0.5</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.flattening">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">flattening</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.0033528106647474805</span></em><a class="headerlink" href="#mitos.constants.flattening" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.flattening">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">flattening</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.0033528106647474805</span></em><a class="headerlink" href="#metintos.constants.flattening" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 flattening = 1/298.257223563</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.ft">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">ft</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.3048</span></em><a class="headerlink" href="#mitos.constants.ft" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.ft">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">ft</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.3048</span></em><a class="headerlink" href="#metintos.constants.ft" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 ft = 0.3048</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.g">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">g</span></code><em class="property"> <span class="pre">=</span> <span class="pre">9.80665</span></em><a class="headerlink" href="#mitos.constants.g" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.g">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">g</span></code><em class="property"> <span class="pre">=</span> <span class="pre">9.80665</span></em><a class="headerlink" href="#metintos.constants.g" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 g0 = g = 9.80665</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.g0">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">g0</span></code><em class="property"> <span class="pre">=</span> <span class="pre">9.80665</span></em><a class="headerlink" href="#mitos.constants.g0" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.g0">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">g0</span></code><em class="property"> <span class="pre">=</span> <span class="pre">9.80665</span></em><a class="headerlink" href="#metintos.constants.g0" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 g0 = g = 9.80665</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.h_tropopause">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">h_tropopause</span></code><em class="property"> <span class="pre">=</span> <span class="pre">11000.0</span></em><a class="headerlink" href="#mitos.constants.h_tropopause" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.h_tropopause">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">h_tropopause</span></code><em class="property"> <span class="pre">=</span> <span class="pre">11000.0</span></em><a class="headerlink" href="#metintos.constants.h_tropopause" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 h_tropopause = 11e3</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.hour">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">hour</span></code><em class="property"> <span class="pre">=</span> <span class="pre">numpy.timedelta64(3600000000000,'ns')</span></em><a class="headerlink" href="#mitos.constants.hour" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.hour">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">hour</span></code><em class="property"> <span class="pre">=</span> <span class="pre">numpy.timedelta64(3600000000000,'ns')</span></em><a class="headerlink" href="#metintos.constants.hour" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 hour = np.timedelta64(1, ‘h’).astype(‘timedelta64[ns]’)</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.kappa">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">kappa</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1.4</span></em><a class="headerlink" href="#mitos.constants.kappa" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.kappa">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">kappa</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1.4</span></em><a class="headerlink" href="#metintos.constants.kappa" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 kappa = 1.4</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.kt">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">kt</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.5144444444444445</span></em><a class="headerlink" href="#mitos.constants.kt" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.kt">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">kt</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.5144444444444445</span></em><a class="headerlink" href="#metintos.constants.kt" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 kt = nmi/3600</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.lapse_rate_troposphere">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">lapse_rate_troposphere</span></code><em class="property"> <span class="pre">=</span> <span class="pre">-0.0065</span></em><a class="headerlink" href="#mitos.constants.lapse_rate_troposphere" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.lapse_rate_troposphere">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">lapse_rate_troposphere</span></code><em class="property"> <span class="pre">=</span> <span class="pre">-0.0065</span></em><a class="headerlink" href="#metintos.constants.lapse_rate_troposphere" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 lapse_rate_troposphere = -0.0065</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.m2ft">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">m2ft</span></code><em class="property"> <span class="pre">=</span> <span class="pre">3.280839895013123</span></em><a class="headerlink" href="#mitos.constants.m2ft" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.m2ft">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">m2ft</span></code><em class="property"> <span class="pre">=</span> <span class="pre">3.280839895013123</span></em><a class="headerlink" href="#metintos.constants.m2ft" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 m2ft = ft**-1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.minute">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">minute</span></code><em class="property"> <span class="pre">=</span> <span class="pre">numpy.timedelta64(60000000000,'ns')</span></em><a class="headerlink" href="#mitos.constants.minute" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.minute">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">minute</span></code><em class="property"> <span class="pre">=</span> <span class="pre">numpy.timedelta64(60000000000,'ns')</span></em><a class="headerlink" href="#metintos.constants.minute" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 minute = np.timedelta64(1, ‘m’).astype(‘timedelta64[ns]’)</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.ms2kt">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">ms2kt</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1.9438444924406046</span></em><a class="headerlink" href="#mitos.constants.ms2kt" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.ms2kt">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">ms2kt</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1.9438444924406046</span></em><a class="headerlink" href="#metintos.constants.ms2kt" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 ms2kt = 1/kt</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.nmi">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">nmi</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1852.0</span></em><a class="headerlink" href="#mitos.constants.nmi" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.nmi">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">nmi</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1852.0</span></em><a class="headerlink" href="#metintos.constants.nmi" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 nmi = 1852.0</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="mitos.constants.rho0_MSL">
-<code class="sig-prename descclassname"><span class="pre">mitos.constants.</span></code><code class="sig-name descname"><span class="pre">rho0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1.225</span></em><a class="headerlink" href="#mitos.constants.rho0_MSL" title="Permalink to this definition">¶</a></dt>
+<dt id="metintos.constants.rho0_MSL">
+<code class="sig-prename descclassname"><span class="pre">metintos.constants.</span></code><code class="sig-name descname"><span class="pre">rho0_MSL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1.225</span></em><a class="headerlink" href="#metintos.constants.rho0_MSL" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code> :
 rho0_MSL = 1.225</p>
 </dd></dl>
@@ -897,7 +897,7 @@ rho0_MSL = 1.225</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">MITOS</a></h1>
+<h1 class="logo"><a href="index.html">METINTOS</a></h1>
 
 
 
@@ -905,7 +905,7 @@ rho0_MSL = 1.225</p>
 
 
 <p>
-<iframe src="https://ghbtns.com/github-btn.html?user=javiergarciaheras&repo=mitos&type=watch&count=true&size=large&v=2"
+<iframe src="https://ghbtns.com/github-btn.html?user=javiergarciaheras&repo=metintos&type=watch&count=true&size=large&v=2"
   allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
 </p>
 
@@ -917,17 +917,17 @@ rho0_MSL = 1.225</p>
 <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Optical Flow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-mitos.isa">International Standard Atmosphere (ISA)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-mitos.utils">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-mitos.io">Input/output</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-mitos.constants">Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-metintos.isa">International Standard Atmosphere (ISA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-metintos.utils">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-metintos.io">Input/output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-metintos.constants">Constants</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Meteorological Interpolation Toolbox for Optimization and Simulation (MITOS)</a></li>
+      <li>Previous: <a href="index.html" title="previous chapter">METeorological INterpolation Toolbox for Optimization and Simulation (METINTOS)</a></li>
   </ul></li>
 </ul>
 </div>

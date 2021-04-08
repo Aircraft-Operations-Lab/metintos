@@ -5,47 +5,40 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>flow_tuning &#8212; MITOS 1.0.0 documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
-    
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <title>metintos.flow_tuning &#8212; METINTOS 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">MITOS 1.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Module code</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">flow_tuning</a></li> 
-      </ul>
-    </div>  
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <h1>Source code for flow_tuning</h1><div class="highlight"><pre>
+  <h1>Source code for metintos.flow_tuning</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">List</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
-<span class="kn">from</span> <span class="nn">mitos.optiflow</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">mitos.constants</span> <span class="kn">import</span> <span class="n">hour</span>
+<span class="kn">from</span> <span class="nn">metintos.optiflow</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">metintos.constants</span> <span class="kn">import</span> <span class="n">hour</span>
 <span class="kn">from</span> <span class="nn">hyperopt</span> <span class="kn">import</span> <span class="n">fmin</span><span class="p">,</span> <span class="n">tpe</span><span class="p">,</span> <span class="n">hp</span><span class="p">,</span> <span class="n">STATUS_OK</span><span class="p">,</span> <span class="n">Trials</span>
 
 <span class="c1">#: :obj:`tuple` :</span>
@@ -53,17 +46,17 @@
 <span class="n">TimeSelector</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;TimeSelector&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;step&#39;</span><span class="p">])</span>
 
 
-<div class="viewcode-block" id="add_times_to_steps_sources_targets"><a class="viewcode-back" href="../code.html#flow_tuning.add_times_to_steps_sources_targets">[docs]</a><span class="k">def</span> <span class="nf">add_times_to_steps_sources_targets</span><span class="p">(</span><span class="n">steps_sources_targets</span><span class="p">,</span> <span class="n">dataset</span><span class="p">):</span>
+<div class="viewcode-block" id="add_times_to_steps_sources_targets"><a class="viewcode-back" href="../../code.html#metintos.flow_tuning.add_times_to_steps_sources_targets">[docs]</a><span class="k">def</span> <span class="nf">add_times_to_steps_sources_targets</span><span class="p">(</span><span class="n">steps_sources_targets</span><span class="p">,</span> <span class="n">dataset</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Given a dict mapping (source step, source step) -&gt; (target step), return a dict replacing step keys and values</span>
 <span class="sd">    with analogous TimeSelector values that also include time information.</span>
 
-<span class="sd">    :param steps_sources_targets:</span>
-<span class="sd">    :type steps_sources_targets:</span>
+<span class="sd">        :param steps_sources_targets:</span>
+<span class="sd">        :type steps_sources_targets:</span>
 
-<span class="sd">    :param dataset:</span>
-<span class="sd">    :type dataset:</span>
+<span class="sd">        :param dataset:</span>
+<span class="sd">        :type dataset:</span>
 
-<span class="sd">    :returns: None</span>
+<span class="sd">        :returns: None</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">new_dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -77,17 +70,17 @@
     <span class="k">return</span> <span class="n">new_dict</span></div>
 
 
-<div class="viewcode-block" id="add_steps_to_times_sources_targets"><a class="viewcode-back" href="../code.html#flow_tuning.add_steps_to_times_sources_targets">[docs]</a><span class="k">def</span> <span class="nf">add_steps_to_times_sources_targets</span><span class="p">(</span><span class="n">times_sources_targets</span><span class="p">,</span> <span class="n">steps_list</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="o">*</span><span class="n">hour</span><span class="p">,)):</span>
+<div class="viewcode-block" id="add_steps_to_times_sources_targets"><a class="viewcode-back" href="../../code.html#metintos.flow_tuning.add_steps_to_times_sources_targets">[docs]</a><span class="k">def</span> <span class="nf">add_steps_to_times_sources_targets</span><span class="p">(</span><span class="n">times_sources_targets</span><span class="p">,</span> <span class="n">steps_list</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="o">*</span><span class="n">hour</span><span class="p">,)):</span>
     <span class="sd">&quot;&quot;&quot;Given a dict mapping (source step, source step) -&gt; (target step), return a dict replacing step keys and values</span>
 <span class="sd">    with analogous TimeSelector values that also include time information.</span>
 
-<span class="sd">    :param times_sources_targets:</span>
-<span class="sd">    :type times_sources_targets:</span>
+<span class="sd">        :param times_sources_targets:</span>
+<span class="sd">        :type times_sources_targets:</span>
 
-<span class="sd">    :param steps_list: default 0</span>
-<span class="sd">    :type steps_list:</span>
+<span class="sd">        :param steps_list: default 0</span>
+<span class="sd">        :type steps_list:</span>
 
-<span class="sd">    :returns: None</span>
+<span class="sd">        :returns: None</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">new_dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -100,50 +93,50 @@
     <span class="k">return</span> <span class="n">new_dict</span></div>
 
 
-<div class="viewcode-block" id="filter_dims"><a class="viewcode-back" href="../code.html#flow_tuning.filter_dims">[docs]</a><span class="k">def</span> <span class="nf">filter_dims</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">dims</span><span class="p">):</span>
+<div class="viewcode-block" id="filter_dims"><a class="viewcode-back" href="../../code.html#metintos.flow_tuning.filter_dims">[docs]</a><span class="k">def</span> <span class="nf">filter_dims</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">dims</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns d filtered so that only key-value pairs where the key is in dims are kept</span>
 
-<span class="sd">    :param d:</span>
-<span class="sd">    :type d:</span>
+<span class="sd">        :param d:</span>
+<span class="sd">        :type d:</span>
 
-<span class="sd">    :param dims:</span>
-<span class="sd">    :type dims:</span>
+<span class="sd">        :param dims:</span>
+<span class="sd">        :type dims:</span>
 
-<span class="sd">    :returns: None</span>
+<span class="sd">        :returns: None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">}</span></div>
 
 
-<div class="viewcode-block" id="evaluate_flow_on_dataset"><a class="viewcode-back" href="../code.html#flow_tuning.evaluate_flow_on_dataset">[docs]</a><span class="k">def</span> <span class="nf">evaluate_flow_on_dataset</span><span class="p">(</span><span class="n">flow_calc</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">sources_and_targets</span><span class="p">,</span>
+<div class="viewcode-block" id="evaluate_flow_on_dataset"><a class="viewcode-back" href="../../code.html#metintos.flow_tuning.evaluate_flow_on_dataset">[docs]</a><span class="k">def</span> <span class="nf">evaluate_flow_on_dataset</span><span class="p">(</span><span class="n">flow_calc</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">sources_and_targets</span><span class="p">,</span>
                              <span class="n">array_norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aggregation_norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cut_evaluation_array</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                              <span class="n">aggregate</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="sd">    :param flow_calc:</span>
-<span class="sd">    :type flow_calc:</span>
+<span class="sd">        :param flow_calc:</span>
+<span class="sd">        :type flow_calc:</span>
 
-<span class="sd">    :param dataset:</span>
-<span class="sd">    :type dataset: xarray.Dataset</span>
+<span class="sd">        :param dataset:</span>
+<span class="sd">        :type dataset: xarray.Dataset</span>
 
-<span class="sd">    :param variables:</span>
-<span class="sd">    :type variables:</span>
+<span class="sd">        :param variables:</span>
+<span class="sd">        :type variables:</span>
 
-<span class="sd">    :param sources_and_targets:</span>
-<span class="sd">    :type sources_and_targets:</span>
+<span class="sd">        :param sources_and_targets:</span>
+<span class="sd">        :type sources_and_targets:</span>
 
-<span class="sd">    :param array_norms:</span>
-<span class="sd">    :type array_norms:</span>
+<span class="sd">        :param array_norms:</span>
+<span class="sd">        :type array_norms:</span>
 
-<span class="sd">    :param aggregation_norm:</span>
-<span class="sd">    :type aggregation_norm:</span>
+<span class="sd">        :param aggregation_norm:</span>
+<span class="sd">        :type aggregation_norm:</span>
 
-<span class="sd">    :param cut_evaluation_array:</span>
-<span class="sd">    :type cut_evaluation_array:</span>
+<span class="sd">        :param cut_evaluation_array:</span>
+<span class="sd">        :type cut_evaluation_array:</span>
 
-<span class="sd">    :param aggregate:</span>
-<span class="sd">    :type aggregate:</span>
+<span class="sd">        :param aggregate:</span>
+<span class="sd">        :type aggregate:</span>
 
-<span class="sd">    :returns: None</span>
+<span class="sd">        :returns: None</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">array_norm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -189,36 +182,36 @@
     <span class="k">return</span> <span class="n">var_norms</span></div>
 
 
-<div class="viewcode-block" id="evaluate_flow_on_dataset_norms"><a class="viewcode-back" href="../code.html#flow_tuning.evaluate_flow_on_dataset_norms">[docs]</a><span class="k">def</span> <span class="nf">evaluate_flow_on_dataset_norms</span><span class="p">(</span><span class="n">flow_calc</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">sources_and_targets</span><span class="p">,</span>
+<div class="viewcode-block" id="evaluate_flow_on_dataset_norms"><a class="viewcode-back" href="../../code.html#metintos.flow_tuning.evaluate_flow_on_dataset_norms">[docs]</a><span class="k">def</span> <span class="nf">evaluate_flow_on_dataset_norms</span><span class="p">(</span><span class="n">flow_calc</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">sources_and_targets</span><span class="p">,</span>
                              <span class="n">array_norms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aggregation_norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cut_evaluation_array</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                              <span class="n">aggregate</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="sd">    :param flow_calc:</span>
-<span class="sd">    :type flow_calc:</span>
+<span class="sd">        :param flow_calc:</span>
+<span class="sd">        :type flow_calc:</span>
 
-<span class="sd">    :param dataset:</span>
-<span class="sd">    :type dataset: xarray.Dataset</span>
+<span class="sd">        :param dataset:</span>
+<span class="sd">        :type dataset: xarray.Dataset</span>
 
-<span class="sd">    :param variables:</span>
-<span class="sd">    :type variables:</span>
+<span class="sd">        :param variables:</span>
+<span class="sd">        :type variables:</span>
 
-<span class="sd">    :param sources_and_targets:</span>
-<span class="sd">    :type sources_and_targets:</span>
+<span class="sd">        :param sources_and_targets:</span>
+<span class="sd">        :type sources_and_targets:</span>
 
-<span class="sd">    :param array_norms:</span>
-<span class="sd">    :type array_norms:</span>
+<span class="sd">        :param array_norms:</span>
+<span class="sd">        :type array_norms:</span>
 
-<span class="sd">    :param aggregation_norm:</span>
-<span class="sd">    :type aggregation_norm:</span>
+<span class="sd">        :param aggregation_norm:</span>
+<span class="sd">        :type aggregation_norm:</span>
 
-<span class="sd">    :param cut_evaluation_array:</span>
-<span class="sd">    :type cut_evaluation_array:</span>
+<span class="sd">        :param cut_evaluation_array:</span>
+<span class="sd">        :type cut_evaluation_array:</span>
 
-<span class="sd">    :param aggregate:</span>
-<span class="sd">    :type aggregate:</span>
+<span class="sd">        :param aggregate:</span>
+<span class="sd">        :type aggregate:</span>
 
-<span class="sd">    :returns: None</span>
+<span class="sd">        :returns: None</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">array_norms</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -267,32 +260,32 @@
     <span class="k">return</span> <span class="n">var_norms</span></div>
 
 
-<div class="viewcode-block" id="optimize_flow"><a class="viewcode-back" href="../code.html#flow_tuning.optimize_flow">[docs]</a><span class="k">def</span> <span class="nf">optimize_flow</span><span class="p">(</span><span class="n">parameter_space</span><span class="p">,</span> <span class="n">flow_generator</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">sources_and_targets</span><span class="p">,</span>
+<div class="viewcode-block" id="optimize_flow"><a class="viewcode-back" href="../../code.html#metintos.flow_tuning.optimize_flow">[docs]</a><span class="k">def</span> <span class="nf">optimize_flow</span><span class="p">(</span><span class="n">parameter_space</span><span class="p">,</span> <span class="n">flow_generator</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">sources_and_targets</span><span class="p">,</span>
                   <span class="n">var_weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_evals</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cut_evaluation_array</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Optimizes the parameters of the algorithm for performance on the dataset</span>
 
-<span class="sd">    :param parameter_space:</span>
-<span class="sd">    :type parameter_space:</span>
+<span class="sd">        :param parameter_space:</span>
+<span class="sd">        :type parameter_space:</span>
 
-<span class="sd">    :param flow_generator:</span>
-<span class="sd">    :type flow_generator:</span>
+<span class="sd">        :param flow_generator:</span>
+<span class="sd">        :type flow_generator:</span>
 
-<span class="sd">    :param dataset:</span>
-<span class="sd">    :type dataset:</span>
+<span class="sd">        :param dataset:</span>
+<span class="sd">        :type dataset:</span>
 
-<span class="sd">    :param sources_and_targets:</span>
-<span class="sd">    :type sources_and_targets:</span>
+<span class="sd">        :param sources_and_targets:</span>
+<span class="sd">        :type sources_and_targets:</span>
 
-<span class="sd">    :param var_weights:</span>
-<span class="sd">    :type var_weights:</span>
+<span class="sd">        :param var_weights:</span>
+<span class="sd">        :type var_weights:</span>
 
-<span class="sd">    :param max_evals:</span>
-<span class="sd">    :type max_evals:</span>
+<span class="sd">        :param max_evals:</span>
+<span class="sd">        :type max_evals:</span>
 
-<span class="sd">    :param cut_evaluation_array:</span>
-<span class="sd">    :type cut_evaluation_array:</span>
+<span class="sd">        :param cut_evaluation_array:</span>
+<span class="sd">        :type cut_evaluation_array:</span>
 
-<span class="sd">    :return: None</span>
+<span class="sd">        :return: None</span>
 
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -344,43 +337,80 @@
 
 </pre></div>
 
-            <div class="clearer"></div>
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">METINTOS</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=javiergarciaheras&repo=metintos&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">Optical Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html#module-metintos.isa">International Standard Atmosphere (ISA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html#module-metintos.utils">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html#module-metintos.io">Input/output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html#module-metintos.constants">Constants</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
+    <form class="search" action="../../search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
 <script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">MITOS 1.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Module code</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">flow_tuning</a></li> 
-      </ul>
+    <div class="footer">
+      &copy;2021, UC3M <dangonza@ing.uc3m.es>.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
     </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, UC3M.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
-    </div>
+
+    
+
+    
   </body>
 </html>

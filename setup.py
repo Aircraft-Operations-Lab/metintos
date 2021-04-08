@@ -4,8 +4,8 @@
 from distutils.core import setup
 
 setup(
-  name = 'mitos',         # How you named your package folder (MyLib)
-  packages = ['mitos'],   # Chose the same as "name"
+  name = 'metintos',         # How you named your package folder (MyLib)
+  packages = ['metintos'],   # Chose the same as "name"
   version = '0.1',      # Start with a small number and increase it with every change you make
   license='lgpl-3.0',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Meteorological Interpolation Toolbox for Optimization and Simulation',   # Give a short description about your library
@@ -28,7 +28,7 @@ setup(
   include_package_data=True,
   tests_require=["pytest"],
   zip_safe=False,
-  classifiers=[
+  classifiers=[ # Chose the classifiers from here: https://pypi.org/classifiers/
     'Development Status :: 4 - Beta',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
     'Intended Audience :: Science/Research',      # Define that your audience are developers
     'Intended Audience :: Education',

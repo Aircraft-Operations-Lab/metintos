@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-    <title>Meteorological Interpolation Toolbox for Optimization and Simulation (MITOS) &#8212; MITOS 1.0.0 documentation</title>
+    <title>METeorological INterpolation Toolbox for Optimization and Simulation (METINTOS) &#8212; METINTOS 1.0.0 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -32,19 +32,50 @@
 
           <div class="body" role="main">
             
-  <section id="meteorological-interpolation-toolbox-for-optimization-and-simulation-mitos">
-<h1>Meteorological Interpolation Toolbox for Optimization and Simulation (MITOS)<a class="headerlink" href="#meteorological-interpolation-toolbox-for-optimization-and-simulation-mitos" title="Permalink to this headline">¶</a></h1>
-<section id="what-is-mitos">
-<h2>What is MITOS?<a class="headerlink" href="#what-is-mitos" title="Permalink to this headline">¶</a></h2>
-<p>MITOS is a libray that interpolate meteorological variables in time.</p>
+  <section id="meteorological-interpolation-toolbox-for-optimization-and-simulation-metintos">
+<h1>METeorological INterpolation Toolbox for Optimization and Simulation (METINTOS)<a class="headerlink" href="#meteorological-interpolation-toolbox-for-optimization-and-simulation-metintos" title="Permalink to this headline">¶</a></h1>
+<section id="what-is-metintos">
+<h2>What is METINTOS?<a class="headerlink" href="#what-is-metintos" title="Permalink to this headline">¶</a></h2>
+<p>METINTOS is a libray that interpolates meteorological variables in time.
+It is distributed under the GNU Lesser General Public License v3.0.</p>
+<p><strong>Citation info</strong>: D. Daniel González-Arribas, J. García-Heras, M. Soler and E.A. Enderiz, METeorological INterpolation Toolbox for Optimization and Simulation (METINTOS) an open source meteorological variable interpolator.</p>
 </section>
-<section id="how-to-install-dependencies">
-<h2>How to install dependencies?<a class="headerlink" href="#how-to-install-dependencies" title="Permalink to this headline">¶</a></h2>
-<p>Needed libraries are listed on requirements.txt files.</p>
+<section id="how-to-run-the-library">
+<h2>How to run the library<a class="headerlink" href="#how-to-run-the-library" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Clone or download the repository.</p></li>
+<li><p>Install all the dependencies.</p></li>
+</ol>
 </section>
 <section id="how-to-use-it">
-<h2>How to use it?<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h2>
-<p>(TBC)</p>
+<h2>How to use it<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>From your meteorological files you have to create the dataset, you have to use xarray.open_mfdataset, you can obtain information in the xarray documentation ([xarray.open_mfdataset link](<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_mfdataset.html">http://xarray.pydata.org/en/stable/generated/xarray.open_mfdataset.html</a>)).</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;h5netcdf&#39;</span><span class="p">,</span> <span class="n">concat_dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;step&#39;</span><span class="p">],</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;nested&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Create the DatasetHandler calling metintos.io.DatasetHandler.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dsh</span> <span class="o">=</span> <span class="n">metintos</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">DatasetHandler</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">ds</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Create CoordinateGenerator object and new axis, i.e.: latitudes, longitudes, steps.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cg</span> <span class="o">=</span> <span class="n">metintos</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">CoordinateGenerator</span><span class="p">()</span>
+<span class="n">cg</span><span class="o">.</span><span class="n">add_axis_lims_n_points</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="n">l0</span><span class="p">,</span> <span class="n">lf</span><span class="p">,</span> <span class="n">ls</span><span class="p">)</span>
+<span class="n">cg</span><span class="o">.</span><span class="n">add_axis_lims_n_points</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">lo0</span><span class="p">,</span> <span class="n">lof</span><span class="p">,</span> <span class="n">los</span><span class="p">)</span>
+<span class="n">cg</span><span class="o">.</span><span class="n">add_axis_lims_resolution</span><span class="p">(</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">,</span> <span class="n">sf</span><span class="p">,</span> <span class="n">ss</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Produce the new dataset interpolated with optical flow</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dsn</span> <span class="o">=</span> <span class="n">dsh</span><span class="o">.</span><span class="n">get_optical_flow_interpolated_dataset</span><span class="p">(</span><span class="n">cg</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="how-to-compile-documentation-pdf">
 <h2>How to compile documentation pdf?<a class="headerlink" href="#how-to-compile-documentation-pdf" title="Permalink to this headline">¶</a></h2>
@@ -69,10 +100,10 @@
 <p><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="code.html">Optical Flow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code.html#module-mitos.isa">International Standard Atmosphere (ISA)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code.html#module-mitos.utils">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code.html#module-mitos.io">Input/output</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code.html#module-mitos.constants">Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html#module-metintos.isa">International Standard Atmosphere (ISA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html#module-metintos.utils">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html#module-metintos.io">Input/output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html#module-metintos.constants">Constants</a></li>
 </ul>
 </div>
 </section>
@@ -111,7 +142,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="#">MITOS</a></h1>
+<h1 class="logo"><a href="#">METINTOS</a></h1>
 
 
 
@@ -119,7 +150,7 @@
 
 
 <p>
-<iframe src="https://ghbtns.com/github-btn.html?user=javiergarciaheras&repo=mitos&type=watch&count=true&size=large&v=2"
+<iframe src="https://ghbtns.com/github-btn.html?user=javiergarciaheras&repo=metintos&type=watch&count=true&size=large&v=2"
   allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
 </p>
 
@@ -131,10 +162,10 @@
 <p><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="code.html">Optical Flow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code.html#module-mitos.isa">International Standard Atmosphere (ISA)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code.html#module-mitos.utils">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code.html#module-mitos.io">Input/output</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code.html#module-mitos.constants">Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html#module-metintos.isa">International Standard Atmosphere (ISA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html#module-metintos.utils">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html#module-metintos.io">Input/output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html#module-metintos.constants">Constants</a></li>
 </ul>
 
 <div class="relations">

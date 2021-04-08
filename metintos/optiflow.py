@@ -3,7 +3,7 @@
 
 import cv2
 from scipy.interpolate import RectBivariateSpline
-from mitos.utils import *
+from metintos.utils import *
 
 
 class NormalizedWrappedInterpolant(object):

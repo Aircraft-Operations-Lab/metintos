@@ -1,10 +1,9 @@
 import unittest
 import xarray as xr
-import mitos
-import mitos.io
+import metintos
+import metintos.io
 import numpy as np
 import os
-import matplotlib.pyplot as plt
 
 
 class TestDatasetHandler(unittest.TestCase):
@@ -20,14 +19,14 @@ class TestDatasetHandler(unittest.TestCase):
         cls.ds = xr.open_mfdataset(files, engine='h5netcdf', concat_dim=['step'], combine='nested')
 
         # create DasetHandler object
-        cls.dsh = mitos.io.DatasetHandler(cls.ds)
+        cls.dsh = metintos.io.DatasetHandler(cls.ds)
 
         # create CoordinateGenerator object and new step axi
         mn = np.timedelta64(1, 'm').astype('timedelta64[ns]')
         s0 = 0 * mn
         sf = 5 * 24.1 * mn
         ss = mn * 5
-        cls.cg = mitos.io.CoordinateGenerator()
+        cls.cg = metintos.io.CoordinateGenerator()
         # cg.add_axis_lims_n_points('latitude', 30, 70, 32)
         # cg.add_axis_lims_n_points('longitude', -10, 40, 32)
         cls.cg.add_axis_lims_resolution('step', s0, sf, ss)

@@ -5,49 +5,42 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mitos.io &#8212; MITOS 1.0.0 documentation</title>
+    <title>metintos.io &#8212; METINTOS 1.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
-    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">MITOS 1.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">mitos.io</a></li> 
-      </ul>
-    </div>  
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <h1>Source code for mitos.io</h1><div class="highlight"><pre>
+  <h1>Source code for metintos.io</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
-<span class="kn">from</span> <span class="nn">mitos.optiflow</span> <span class="kn">import</span> <span class="n">MultiFrameInterpolant</span>
-<span class="kn">from</span> <span class="nn">mitos.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">metintos.optiflow</span> <span class="kn">import</span> <span class="n">MultiFrameInterpolant</span>
+<span class="kn">from</span> <span class="nn">metintos.utils</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
 
 
-<div class="viewcode-block" id="check_array_for_nans"><a class="viewcode-back" href="../../code.html#mitos.io.check_array_for_nans">[docs]</a><span class="k">def</span> <span class="nf">check_array_for_nans</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+<div class="viewcode-block" id="check_array_for_nans"><a class="viewcode-back" href="../../code.html#metintos.io.check_array_for_nans">[docs]</a><span class="k">def</span> <span class="nf">check_array_for_nans</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    :param arr:</span>
@@ -60,19 +53,19 @@
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span></div>
 
 
-<div class="viewcode-block" id="CoordinateGenerator"><a class="viewcode-back" href="../../code.html#mitos.io.CoordinateGenerator">[docs]</a><span class="k">class</span> <span class="nc">CoordinateGenerator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CoordinateGenerator"><a class="viewcode-back" href="../../code.html#metintos.io.CoordinateGenerator">[docs]</a><span class="k">class</span> <span class="nc">CoordinateGenerator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Helper class for generating coordinates</span>
 
 <span class="sd">        :var dict: Coordinates dictionary, mapping axis_name -&gt; np.ndarray</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="CoordinateGenerator.__init__"><a class="viewcode-back" href="../../code.html#mitos.io.CoordinateGenerator.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="CoordinateGenerator.__init__"><a class="viewcode-back" href="../../code.html#metintos.io.CoordinateGenerator.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;This declares the axes variable as a dictionary &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="p">{}</span></div>
 
-<div class="viewcode-block" id="CoordinateGenerator.add_axis_lims_resolution"><a class="viewcode-back" href="../../code.html#mitos.io.CoordinateGenerator.add_axis_lims_resolution">[docs]</a>    <span class="k">def</span> <span class="nf">add_axis_lims_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax_name</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">resolution</span><span class="p">):</span>
+<div class="viewcode-block" id="CoordinateGenerator.add_axis_lims_resolution"><a class="viewcode-back" href="../../code.html#metintos.io.CoordinateGenerator.add_axis_lims_resolution">[docs]</a>    <span class="k">def</span> <span class="nf">add_axis_lims_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax_name</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">resolution</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add an axis coordinate specifying limits and resolution (i.e. steps between coordinate points)</span>
 
 <span class="sd">            :param ax_name: Name of the coordinate axis to be set</span>
@@ -92,7 +85,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">ax_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">resolution</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="CoordinateGenerator.add_axis_lims_n_points"><a class="viewcode-back" href="../../code.html#mitos.io.CoordinateGenerator.add_axis_lims_n_points">[docs]</a>    <span class="k">def</span> <span class="nf">add_axis_lims_n_points</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax_name</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="CoordinateGenerator.add_axis_lims_n_points"><a class="viewcode-back" href="../../code.html#metintos.io.CoordinateGenerator.add_axis_lims_n_points">[docs]</a>    <span class="k">def</span> <span class="nf">add_axis_lims_n_points</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax_name</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add an axis coordinate specifying limits and number of points in coordinate axis</span>
 
 <span class="sd">            :param ax_name: Name of the coordinate axis to be set</span>
@@ -117,7 +110,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">ax_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">lower</span> <span class="o">+</span> <span class="p">(</span><span class="n">upper</span> <span class="o">-</span> <span class="n">lower</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="get_var_name"><a class="viewcode-back" href="../../code.html#mitos.io.get_var_name">[docs]</a><span class="k">def</span> <span class="nf">get_var_name</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">variable</span><span class="p">):</span>
+<div class="viewcode-block" id="get_var_name"><a class="viewcode-back" href="../../code.html#metintos.io.get_var_name">[docs]</a><span class="k">def</span> <span class="nf">get_var_name</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">variable</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        :param dataset:</span>
@@ -135,7 +128,7 @@
         <span class="k">return</span> <span class="n">variable</span></div>
 
 
-<div class="viewcode-block" id="DatasetHandler"><a class="viewcode-back" href="../../code.html#mitos.io.DatasetHandler">[docs]</a><span class="k">class</span> <span class="nc">DatasetHandler</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="DatasetHandler"><a class="viewcode-back" href="../../code.html#metintos.io.DatasetHandler">[docs]</a><span class="k">class</span> <span class="nc">DatasetHandler</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Wrapper for a xarray.Dataset containing meteorological information at pressure levels</span>
 
 <span class="sd">        :var ds: The dataset</span>
@@ -144,7 +137,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="DatasetHandler.__init__"><a class="viewcode-back" href="../../code.html#mitos.io.DatasetHandler.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">output_dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">time_dim</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="DatasetHandler.__init__"><a class="viewcode-back" href="../../code.html#metintos.io.DatasetHandler.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">output_dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">time_dim</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            :param ds: The dataset</span>
 <span class="sd">            :type ds: xarray.Dataset</span>
@@ -177,7 +170,7 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot handle lat/lon coordinates with shape </span><span class="si">{</span><span class="n">lat</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">default_dims</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DatasetHandler.load_from_steps"><a class="viewcode-back" href="../../code.html#mitos.io.DatasetHandler.load_from_steps">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="DatasetHandler.load_from_steps"><a class="viewcode-back" href="../../code.html#metintos.io.DatasetHandler.load_from_steps">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">load_from_steps</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path_list</span><span class="p">,</span> <span class="o">**</span><span class="n">backend_kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Loads the meteo infromation from multiple grib files with consecutive forecast steps</span>
 
@@ -206,7 +199,7 @@
             <span class="n">dim_list</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;isobaricInhPa&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_dim</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">dim</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dim_list</span> <span class="k">if</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">dims</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
-<div class="viewcode-block" id="DatasetHandler.get_geographical_coordinate_slice_by_indexes"><a class="viewcode-back" href="../../code.html#mitos.io.DatasetHandler.get_geographical_coordinate_slice_by_indexes">[docs]</a>    <span class="k">def</span> <span class="nf">get_geographical_coordinate_slice_by_indexes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lat_idx_low</span><span class="p">,</span> <span class="n">lat_idx_high</span><span class="p">,</span> <span class="n">lon_idx_low</span><span class="p">,</span> <span class="n">lon_idx_high</span><span class="p">):</span>
+<div class="viewcode-block" id="DatasetHandler.get_geographical_coordinate_slice_by_indexes"><a class="viewcode-back" href="../../code.html#metintos.io.DatasetHandler.get_geographical_coordinate_slice_by_indexes">[docs]</a>    <span class="k">def</span> <span class="nf">get_geographical_coordinate_slice_by_indexes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lat_idx_low</span><span class="p">,</span> <span class="n">lat_idx_high</span><span class="p">,</span> <span class="n">lon_idx_low</span><span class="p">,</span> <span class="n">lon_idx_high</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get a CoordinateGenerator (Not implemented)</span>
 
 <span class="sd">            :param lat_idx_low:</span>
@@ -225,7 +218,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span></div>
 
-<div class="viewcode-block" id="DatasetHandler.complete_new_coords"><a class="viewcode-back" href="../../code.html#mitos.io.DatasetHandler.complete_new_coords">[docs]</a>    <span class="k">def</span> <span class="nf">complete_new_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">coords</span><span class="p">):</span>
+<div class="viewcode-block" id="DatasetHandler.complete_new_coords"><a class="viewcode-back" href="../../code.html#metintos.io.DatasetHandler.complete_new_coords">[docs]</a>    <span class="k">def</span> <span class="nf">complete_new_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">coords</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Generates a coordinate set by completing the specificed new coordinates with the already existing ones</span>
 
 
@@ -247,7 +240,7 @@
             <span class="k">pass</span>
         <span class="k">return</span> <span class="n">new_coords</span></div>
 
-<div class="viewcode-block" id="DatasetHandler.get_resampled_dataset"><a class="viewcode-back" href="../../code.html#mitos.io.DatasetHandler.get_resampled_dataset">[docs]</a>    <span class="k">def</span> <span class="nf">get_resampled_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">coords</span><span class="p">):</span>
+<div class="viewcode-block" id="DatasetHandler.get_resampled_dataset"><a class="viewcode-back" href="../../code.html#metintos.io.DatasetHandler.get_resampled_dataset">[docs]</a>    <span class="k">def</span> <span class="nf">get_resampled_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">coords</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Resamples the dataset to new coordinates</span>
 
 
@@ -264,7 +257,7 @@
         <span class="n">placeholder_dataarray</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">new_shape</span><span class="p">),</span> <span class="n">dims</span><span class="o">=</span><span class="n">dims</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">new_coords</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">interp_like</span><span class="p">(</span><span class="n">placeholder_dataarray</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DatasetHandler.get_optical_flow_interpolated_dataset"><a class="viewcode-back" href="../../code.html#mitos.io.DatasetHandler.get_optical_flow_interpolated_dataset">[docs]</a>    <span class="k">def</span> <span class="nf">get_optical_flow_interpolated_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_coords</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flow_calculator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="DatasetHandler.get_optical_flow_interpolated_dataset"><a class="viewcode-back" href="../../code.html#metintos.io.DatasetHandler.get_optical_flow_interpolated_dataset">[docs]</a>    <span class="k">def</span> <span class="nf">get_optical_flow_interpolated_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_coords</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flow_calculator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                               <span class="n">spatial_interp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">zero_out_nans</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Reinterpolates the dataset to the new coordinates using optical flow interpolation</span>
 
@@ -301,7 +294,7 @@
                     <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">}</span>
         <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">data_vars</span><span class="o">=</span><span class="n">new_vars</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">new_coords</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DatasetHandler.get_coords_shape"><a class="viewcode-back" href="../../code.html#mitos.io.DatasetHandler.get_coords_shape">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="DatasetHandler.get_coords_shape"><a class="viewcode-back" href="../../code.html#metintos.io.DatasetHandler.get_coords_shape">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_coords_shape</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">coords</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns the shape of an array with the given coordinates and dimension ordering</span>
 
@@ -322,7 +315,7 @@
             <span class="n">geo_coords</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dims</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">geo_coords</span><span class="p">)</span> <span class="o">+</span> <span class="n">coords</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span></div>
 
-<div class="viewcode-block" id="DatasetHandler.get_optical_flow_interpolated_variable"><a class="viewcode-back" href="../../code.html#mitos.io.DatasetHandler.get_optical_flow_interpolated_variable">[docs]</a>    <span class="k">def</span> <span class="nf">get_optical_flow_interpolated_variable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_coords</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span>
+<div class="viewcode-block" id="DatasetHandler.get_optical_flow_interpolated_variable"><a class="viewcode-back" href="../../code.html#metintos.io.DatasetHandler.get_optical_flow_interpolated_variable">[docs]</a>    <span class="k">def</span> <span class="nf">get_optical_flow_interpolated_variable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_coords</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span>
                                                <span class="n">flow_calculator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">spatial_interp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                                <span class="n">flow_padding</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">zero_out_nans</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -449,12 +442,47 @@
             <span class="k">return</span> <span class="n">intermediate_data_array</span></div></div>
 </pre></div>
 
-            <div class="clearer"></div>
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">METINTOS</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=javiergarciaheras&repo=metintos&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">Optical Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html#module-metintos.isa">International Standard Atmosphere (ISA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html#module-metintos.utils">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html#module-metintos.io">Input/output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html#module-metintos.constants">Constants</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -465,27 +493,29 @@
     </div>
 </div>
 <script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">MITOS 1.0.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">mitos.io</a></li> 
-      </ul>
+    <div class="footer">
+      &copy;2021, UC3M <dangonza@ing.uc3m.es>.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
     </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, UC3M.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
-    </div>
+
+    
+
+    
   </body>
 </html>
