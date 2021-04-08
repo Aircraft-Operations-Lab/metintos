@@ -1,12 +1,12 @@
-# Meteorological Interpolation Toolbox for Optimization and Simulation (MITOS)
+# METeorological INterpolation Toolbox for Optimization and Simulation (METINTOS)
 
 
-## What is MITOS?
+## What is METINTOS?
 
-MITOS is a libray that interpolates meteorological variables in time.
+METINTOS is a libray that interpolates meteorological variables in time.
 It is distributed under the GNU Lesser General Public License v3.0.
 
-**Citation info**: D. Daniel González-Arribas, J. García-Heras, M. Soler and E.A. Enderiz, Meteorological Interpolation Toolbox for Optimization and Simulation (MITOS) an open source meteorological variable interpolator.
+**Citation info**: D. Daniel González-Arribas, J. García-Heras, M. Soler and E.A. Enderiz, METeorological Interpolation Toolbox for Optimization and Simulation (METINTOS) an open source meteorological variable interpolator.
 
 ## How to run the library
 
@@ -23,16 +23,16 @@ It is distributed under the GNU Lesser General Public License v3.0.
     ds = xr.open_mfdataset(files, engine='h5netcdf', concat_dim=['step'], combine='nested')
 ```
 
-2. Create the DatasetHandler calling mitos.io.DatasetHandler.
+2. Create the DatasetHandler calling metintos.io.DatasetHandler.
 
 ```python
-    dsh = mitos.io.DatasetHandler(cls.ds)
+    dsh = metintos.io.DatasetHandler(cls.ds)
 ```
 
 3. Create CoordinateGenerator object and new axis, i.e.: latitudes, longitudes, steps.
 
 ```python
-    cg = mitos.io.CoordinateGenerator()
+    cg = metintos.io.CoordinateGenerator()
     cg.add_axis_lims_n_points('latitude', l0, lf, ls)
     cg.add_axis_lims_n_points('longitude', lo0, lof, los)
     cg.add_axis_lims_resolution('step', s0, sf, ss)
@@ -75,7 +75,7 @@ Note that you **should not see** any error or warning, this information appears 
 ## Contents
 
 
-Check MITOS documentation in the following link: [MITOS documentation link](https://javiergarciaheras.github.io/mitos/).
+Check METINTOS documentation in the following link: [METINTOS documentation link](https://javiergarciaheras.github.io/metintos/).
 
 
 
