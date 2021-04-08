@@ -1,6 +1,0 @@
-xarray~=0.16.2
-numpy~=1.19.4
-casadi~=3.5.5
-scipy~=1.5.2
-hyperopt~=0.2.5
-setuptools~=49.6.0

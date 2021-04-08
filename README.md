@@ -4,7 +4,7 @@
 ## What is MITOS?
 
 MITOS is a libray that interpolates meteorological variables in time.
-It is distributed under the GNU General Public License v3.
+It is distributed under the GNU Lesser General Public License v3.0.
 
 **Citation info**: D. Daniel González-Arribas, J. García-Heras, M. Soler and E.A. Enderiz, Meteorological Interpolation Toolbox for Optimization and Simulation (MITOS) an open source meteorological variable interpolator.
 
