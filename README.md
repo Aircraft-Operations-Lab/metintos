@@ -20,28 +20,28 @@ It is distributed under the GNU Lesser General Public License v3.0.
 
 
 ```python
-    ds = xr.open_mfdataset(files, engine='h5netcdf', concat_dim=['step'], combine='nested')
+ds = xr.open_mfdataset(files, engine='h5netcdf', concat_dim=['step'], combine='nested')
 ```
 
 2. Create the DatasetHandler calling metintos.io.DatasetHandler.
 
 ```python
-    dsh = metintos.io.DatasetHandler(cls.ds)
+dsh = metintos.io.DatasetHandler(cls.ds)
 ```
 
 3. Create CoordinateGenerator object and new axis, i.e.: latitudes, longitudes, steps.
 
 ```python
-    cg = metintos.io.CoordinateGenerator()
-    cg.add_axis_lims_n_points('latitude', l0, lf, ls)
-    cg.add_axis_lims_n_points('longitude', lo0, lof, los)
-    cg.add_axis_lims_resolution('step', s0, sf, ss)
+cg = metintos.io.CoordinateGenerator()
+cg.add_axis_lims_n_points('latitude', l0, lf, ls)
+cg.add_axis_lims_n_points('longitude', lo0, lof, los)
+cg.add_axis_lims_resolution('step', s0, sf, ss)
 ```
 
 4. Produce the new dataset interpolated with optical flow
 
 ```python
-    dsn = dsh.get_optical_flow_interpolated_dataset(cg.axes)
+dsn = dsh.get_optical_flow_interpolated_dataset(cg.axes)
 ```
 
 ## How to compile documentation pdf
@@ -51,20 +51,20 @@ You can use the Makefile created by Sphinx to create your documentation. Locate 
 
 First clean the _build directory to avoid error or legacy information. Just call:
 
-```
-    make clean
+```bash
+make clean
 ```
 
 In case you want to build your documentation in latex call **twice**:
 
-```
-    make latexpdf
+```bash
+make latexpdf
 ```
 
 if you want to do build your in html call:
 
-```
-    make html
+```bash
+make html
 ```
 
 Note that you **should not see** any error or warning, this information appears as red text in the terminal.
