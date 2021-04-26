@@ -7,6 +7,7 @@ python:
   - "nightly"  # nightly build
 # command to install dependencies
 install:
+  - pip install dask==2021.4.1
   - pip install casadi==3.5.5
   - pip install -r requirements.txt
   - pip install .

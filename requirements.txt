@@ -1,7 +1,7 @@
 xarray~=0.16.2
 numpy~=1.19.4
 #casadi~=3.5.5
-dask~=2021.02.0
+#dask~=2021.02.0
 h5netcdf~=0.8.1
 opencv-python~=4.5.0
 scipy~=1.5.2
