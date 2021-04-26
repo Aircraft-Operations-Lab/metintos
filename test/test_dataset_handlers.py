@@ -11,7 +11,7 @@ class TestDatasetHandler(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Set up data for the whole TestCase
-        cwd = os.getcwd()
+        cwd = os.path.dirname(__file__)
         files_path = os.path.join(cwd, 'samples')
         files = [os.path.join(files_path, 'peticion_METATS_CONVECTION_Spain_2018-01-01_00_000_sfc.grib'),
                  os.path.join(files_path, 'peticion_METATS_CONVECTION_Spain_2018-01-01_00_001_sfc.grib'),
