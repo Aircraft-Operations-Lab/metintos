@@ -1,9 +1,7 @@
 # METeorological INterpolation Toolbox for Optimization and Simulation (METINTOS)
 
 [![Build Status](https://travis-ci.org/javiergarciaheras/metintos.svg?branch=master)](https://travis-ci.org/javiergarciaheras/metintos)
-
 [![GitHub](https://img.shields.io/github/license/javiergarciaheras/metintos)]()
-
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/javiergarciaheras/metintos)]()
 
 ## What is METINTOS?
