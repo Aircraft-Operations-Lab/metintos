@@ -3,8 +3,7 @@ os:
   - osx
 language: python
 python:
-  - "3.8-dev"  # 3.8 development branch
-  - "nightly"  # nightly build
+  - "3.8"  # 3.8 development branch
 # command to install dependencies
 install:
   - pip install dask==2021.4.1
