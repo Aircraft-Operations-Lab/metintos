@@ -79,7 +79,7 @@ Note that you **should not see** any error or warning, this information appears 
 ## Contents
 
 
-Check METINTOS documentation in the following link: [METINTOS documentation link](https://javiergarciaheras.github.io/metintos/).
+Check METINTOS documentation in the following link: [METINTOS documentation link](https://metintos.readthedocs.io/en/latest/).
 
 
 
