@@ -3,7 +3,8 @@
 [![Build Status](https://travis-ci.org/javiergarciaheras/metintos.svg?branch=master)](https://travis-ci.org/javiergarciaheras/metintos)
 [![GitHub](https://img.shields.io/github/license/javiergarciaheras/metintos)]()
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/javiergarciaheras/metintos)]()
-
+[![Documentation Status](https://readthedocs.org/projects/metintos/badge/?version=latest)](https://metintos.readthedocs.io/en/latest/?badge=latest)
+      
 ## What is METINTOS?
 
 METINTOS is a libray that interpolates meteorological variables in time.
