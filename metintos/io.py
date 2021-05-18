@@ -166,6 +166,16 @@ class DatasetHandler(object):
             dim_list = ('number', 'isobaricInhPa', self.time_dim, 'y', 'x')
         return tuple(dim for dim in dim_list if dim in self.ds.dims.keys())
 
+    @ property
+    def data_variables_list(self):
+        """Return a list of variables that are not coordinates
+            :returns: list of variables that are not coordinates
+        """
+        all_vars = set(self.ds.variables.keys())
+        coords = set(self.ds.coords)
+        data_vars = all_vars - coords
+        return data_vars
+
     def get_geographical_coordinate_slice_by_indexes(self, lat_idx_low, lat_idx_high, lon_idx_low, lon_idx_high):
         """Get a CoordinateGenerator (Not implemented)
 
@@ -218,7 +228,10 @@ class DatasetHandler(object):
             :rtype: xarray.Dataset
 
         """
-        dims = self.ds.t.dims
+        data_vars = self.data_variables_list
+        for dv in data_vars:  # fake loop to pick any element from the data_vars set
+            break
+        dims = self.ds[dv].dims
         new_coords = self.complete_new_coords(**coords)
         new_shape = tuple(len(new_coords[d]) for d in dims)
         placeholder_dataarray = xr.DataArray(data=np.zeros(new_shape), dims=dims, coords=new_coords)
