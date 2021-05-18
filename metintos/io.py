@@ -169,6 +169,7 @@ class DatasetHandler(object):
     @ property
     def data_variables_list(self):
         """Return a list of variables that are not coordinates
+
             :returns: list of variables that are not coordinates
         """
         all_vars = set(self.ds.variables.keys())
