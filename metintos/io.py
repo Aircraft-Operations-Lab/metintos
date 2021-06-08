@@ -123,6 +123,14 @@ class DatasetHandler(object):
         self.output_dtype = np.float32
         lat = self.ds.coords['latitude']
         lon = self.ds.coords['longitude']
+
+        # check if we are under a dataset with ensemble
+        self.is_ensemble = False
+        try:
+            self.is_ensemble = len(self.ds.number.values)
+        except TypeError:
+            pass
+
         if len(lat.shape) == 1:
             self.geo_grid = 'latlon'
             if lat[0] > lat[1]:
@@ -379,7 +387,10 @@ class DatasetHandler(object):
         intermediate_data_array = xr.DataArray(data=intermediate_var_array, coords=intermediate_coords,
                                                dims=self.default_dims, name=variable, attrs=self.ds[variable].attrs)
         coords_to_iterate = {}
-        coords_to_iterate_keys = ('number', 'isobaricInhPa')
+        if self.is_ensemble:
+            coords_to_iterate_keys = ('number', 'isobaricInhPa')
+        else:
+            coords_to_iterate_keys = ('isobaricInhPa',)
         for dim_key in coords_to_iterate_keys:
             try:
                 coords_to_iterate[dim_key] = list(new_coords[dim_key].values)
