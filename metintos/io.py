@@ -394,7 +394,7 @@ class DatasetHandler(object):
         for dim_key in coords_to_iterate_keys:
             try:
                 coords_to_iterate[dim_key] = list(new_coords[dim_key].values)
-            except KeyError:
+            except (KeyError, TypeError):
                 coords_to_iterate[dim_key] = [None]
         iterate_combinations = itertools.product(*coords_to_iterate.values())
         for coords_combi in iterate_combinations:
