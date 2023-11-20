@@ -1,10 +1,10 @@
-version: 2
-
-build:
-  os: ubuntu-22.04
-  tools:
-    python: "3.12"
-  commands:
+os:
+  - linux
+language: python
+python:
+  - "3.8"  # 3.8 development branch
+# command to install dependencies
+install:
   - pip install dask==2021.4.1
   - pip install casadi==3.5.5
   - pip install -r requirements.txt
